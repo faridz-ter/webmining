@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Web Mining</title>
+    <title>Crawling menggunakan Scrapy &#8212; My sample book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="VSM.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -97,7 +95,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Web Mining</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -115,8 +113,13 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="crawlingTwitter.html">
-   CRAWLING DATA TWITTER MENGGUNAKAN TWINT
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
   </a>
  </li>
 </ul>
@@ -303,50 +306,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>Crawling menggunakan Scrapy</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -354,7 +330,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="crawling-menggunakan-scrapy">
+<h1>Crawling menggunakan Scrapy<a class="headerlink" href="#crawling-menggunakan-scrapy" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span> 
   <span class="kn">import</span> <span class="nn">scrapy</span>
@@ -390,33 +368,33 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.utils.log:Scrapy 2.6.2 started (bot: scrapybot)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:27 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: scrapybot)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:50 [scrapy.utils.log] INFO: Scrapy 2.6.2 started (bot: scrapybot)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.utils.log:Versions: lxml 4.9.1.0, libxml2 2.9.14, cssselect 1.1.0, parsel 1.6.0, w3lib 2.0.1, Twisted 22.8.0, Python 3.7.13 (default, Apr 24 2022, 01:04:09) - [GCC 7.5.0], pyOpenSSL 22.0.0 (OpenSSL 3.0.5 5 Jul 2022), cryptography 38.0.1, Platform Linux-5.10.133+-x86_64-with-Ubuntu-18.04-bionic
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:27 [scrapy.utils.log] INFO: Versions: lxml 4.9.1.0, libxml2 2.9.14, cssselect 1.1.0, parsel 1.6.0, w3lib 2.0.1, Twisted 22.8.0, Python 3.7.13 (default, Apr 24 2022, 01:04:09) - [GCC 7.5.0], pyOpenSSL 22.0.0 (OpenSSL 3.0.5 5 Jul 2022), cryptography 38.0.1, Platform Linux-5.10.133+-x86_64-with-Ubuntu-18.04-bionic
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:50 [scrapy.utils.log] INFO: Versions: lxml 4.9.1.0, libxml2 2.9.14, cssselect 1.1.0, parsel 1.6.0, w3lib 2.0.1, Twisted 22.8.0, Python 3.7.13 (default, Apr 24 2022, 01:04:09) - [GCC 7.5.0], pyOpenSSL 22.0.0 (OpenSSL 3.0.5 5 Jul 2022), cryptography 38.0.1, Platform Linux-5.10.133+-x86_64-with-Ubuntu-18.04-bionic
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.crawler:Overridden settings:
 {}
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:27 [scrapy.crawler] INFO: Overridden settings:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:50 [scrapy.crawler] INFO: Overridden settings:
 {}
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:scrapy.utils.log:Using reactor: twisted.internet.epollreactor.EPollReactor
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:27 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.epollreactor.EPollReactor
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:50 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.epollreactor.EPollReactor
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.extensions.telnet:Telnet Password: a9939fd22c28ad30
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.extensions.telnet:Telnet Password: ac4c5bc3bc1f7b57
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:27 [scrapy.extensions.telnet] INFO: Telnet Password: a9939fd22c28ad30
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:50 [scrapy.extensions.telnet] INFO: Telnet Password: ac4c5bc3bc1f7b57
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.middleware:Enabled extensions:
@@ -426,7 +404,7 @@ title="Print to PDF"
  &#39;scrapy.extensions.logstats.LogStats&#39;]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:28 [scrapy.middleware] INFO: Enabled extensions:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:51 [scrapy.middleware] INFO: Enabled extensions:
 [&#39;scrapy.extensions.corestats.CoreStats&#39;,
  &#39;scrapy.extensions.telnet.TelnetConsole&#39;,
  &#39;scrapy.extensions.memusage.MemoryUsage&#39;,
@@ -447,7 +425,7 @@ title="Print to PDF"
  &#39;scrapy.downloadermiddlewares.stats.DownloaderStats&#39;]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:28 [scrapy.middleware] INFO: Enabled downloader middlewares:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:51 [scrapy.middleware] INFO: Enabled downloader middlewares:
 [&#39;scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware&#39;,
  &#39;scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware&#39;,
  &#39;scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware&#39;,
@@ -469,7 +447,7 @@ title="Print to PDF"
  &#39;scrapy.spidermiddlewares.depth.DepthMiddleware&#39;]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:28 [scrapy.middleware] INFO: Enabled spider middlewares:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:51 [scrapy.middleware] INFO: Enabled spider middlewares:
 [&#39;scrapy.spidermiddlewares.httperror.HttpErrorMiddleware&#39;,
  &#39;scrapy.spidermiddlewares.offsite.OffsiteMiddleware&#39;,
  &#39;scrapy.spidermiddlewares.referer.RefererMiddleware&#39;,
@@ -481,126 +459,126 @@ title="Print to PDF"
 []
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:28 [scrapy.middleware] INFO: Enabled item pipelines:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:51 [scrapy.middleware] INFO: Enabled item pipelines:
 []
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.core.engine:Spider opened
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:28 [scrapy.core.engine] INFO: Spider opened
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:51 [scrapy.core.engine] INFO: Spider opened
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.extensions.logstats:Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:28 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:51 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.extensions.telnet:Telnet console listening on 127.0.0.1:6023
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:28 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:51 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:filelock:Attempting to acquire lock 140685106898256 on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:filelock:Attempting to acquire lock 139812470416656 on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [filelock] DEBUG: Attempting to acquire lock 140685106898256 on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [filelock] DEBUG: Attempting to acquire lock 139812470416656 on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:filelock:Lock 140685106898256 acquired on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:filelock:Lock 139812470416656 acquired on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [filelock] DEBUG: Lock 140685106898256 acquired on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [filelock] DEBUG: Lock 139812470416656 acquired on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:filelock:Attempting to release lock 140685106898256 on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:filelock:Attempting to release lock 139812470416656 on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [filelock] DEBUG: Attempting to release lock 140685106898256 on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [filelock] DEBUG: Attempting to release lock 139812470416656 on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:filelock:Lock 140685106898256 released on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:filelock:Lock 139812470416656 released on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [filelock] DEBUG: Lock 140685106898256 released on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [filelock] DEBUG: Lock 139812470416656 released on /root/.cache/python-tldextract/3.7.13.final__usr__7d8fdf__tldextract-3.3.1/publicsuffix.org-tlds/de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:scrapy.core.engine:Crawled (200) &lt;GET https://pta.trunojoyo.ac.id/welcome/detail/080411100001&gt; (referer: None)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://pta.trunojoyo.ac.id/welcome/detail/080411100001&gt; (referer: None)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://pta.trunojoyo.ac.id/welcome/detail/080411100001&gt; (referer: None)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEBUG:scrapy.core.scraper:Scraped from &lt;200 https://pta.trunojoyo.ac.id/welcome/detail/080411100001&gt;
 {&#39;judul&#39;: [&#39;SISTEM PERAMALAN PENJUALAN JANGKA PENDEK SPARE PART SEPEDA MOTOR MENGGUNAKAN NEURAL NETWORK\r\n(Studi Kasus : Suzuki Kemayoran Bangkalan)&#39;], &#39;abtraksi&#39;: [&#39;Spare part merupakan salah satu bagian penting dalam pengoperasian mesin pada sepeda motor. Peningkatan jumlah penjualan spare part yang tidak terduga saat proses tune-up menyebabkan kesulitan dalam pelayanan yang terbaik kepada konsumen. Demikian juga sebaliknya, apabila terjadi penurunan jumlah penjualan spare part, maka akan menyebabkan penumpukan spare part di gudang. Oleh karena itu diperlukan sistem peramalan yang mampu meramalkan penjualan spare part pada periode berikutnya. Sistem peramalan ini menggunakan metode Jaringan Syaraf Tiruan algoritma Propagasi Balik dengan momentum untuk meramalkan jumlah penjualan spare part  pada bulan berikutnya. Data yang telah tersimpan dihitung menggunakan epoh dan learning rate yang berbeda. Dari hasil uji coba system, maka dapat disimpulkan bahwa  dengan menggunakan semua data sebagai data training dan menggunakan learning rate 3.5 dan dengan epoh 200 akan menghasilkan tingkat kesalahan 0.0622716.&#39;]}
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://pta.trunojoyo.ac.id/welcome/detail/080411100001&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://pta.trunojoyo.ac.id/welcome/detail/080411100001&gt;
 {&#39;judul&#39;: [&#39;SISTEM PERAMALAN PENJUALAN JANGKA PENDEK SPARE PART SEPEDA MOTOR MENGGUNAKAN NEURAL NETWORK\r\n(Studi Kasus : Suzuki Kemayoran Bangkalan)&#39;], &#39;abtraksi&#39;: [&#39;Spare part merupakan salah satu bagian penting dalam pengoperasian mesin pada sepeda motor. Peningkatan jumlah penjualan spare part yang tidak terduga saat proses tune-up menyebabkan kesulitan dalam pelayanan yang terbaik kepada konsumen. Demikian juga sebaliknya, apabila terjadi penurunan jumlah penjualan spare part, maka akan menyebabkan penumpukan spare part di gudang. Oleh karena itu diperlukan sistem peramalan yang mampu meramalkan penjualan spare part pada periode berikutnya. Sistem peramalan ini menggunakan metode Jaringan Syaraf Tiruan algoritma Propagasi Balik dengan momentum untuk meramalkan jumlah penjualan spare part  pada bulan berikutnya. Data yang telah tersimpan dihitung menggunakan epoh dan learning rate yang berbeda. Dari hasil uji coba system, maka dapat disimpulkan bahwa  dengan menggunakan semua data sebagai data training dan menggunakan learning rate 3.5 dan dengan epoh 200 akan menghasilkan tingkat kesalahan 0.0622716.&#39;]}
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.core.engine:Closing spider (finished)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [scrapy.core.engine] INFO: Closing spider (finished)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [scrapy.core.engine] INFO: Closing spider (finished)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.statscollectors:Dumping Scrapy stats:
 {&#39;downloader/request_bytes&#39;: 246,
  &#39;downloader/request_count&#39;: 1,
  &#39;downloader/request_method_count/GET&#39;: 1,
- &#39;downloader/response_bytes&#39;: 5792,
+ &#39;downloader/response_bytes&#39;: 5784,
  &#39;downloader/response_count&#39;: 1,
  &#39;downloader/response_status_count/200&#39;: 1,
- &#39;elapsed_time_seconds&#39;: 1.926758,
+ &#39;elapsed_time_seconds&#39;: 1.921163,
  &#39;finish_reason&#39;: &#39;finished&#39;,
- &#39;finish_time&#39;: datetime.datetime(2022, 9, 13, 17, 20, 30, 199187),
+ &#39;finish_time&#39;: datetime.datetime(2022, 9, 13, 17, 31, 53, 227250),
  &#39;httpcompression/response_bytes&#39;: 18892,
  &#39;httpcompression/response_count&#39;: 1,
  &#39;item_scraped_count&#39;: 1,
  &#39;log_count/DEBUG&#39;: 7,
  &#39;log_count/INFO&#39;: 10,
- &#39;memusage/max&#39;: 131801088,
- &#39;memusage/startup&#39;: 131801088,
+ &#39;memusage/max&#39;: 132694016,
+ &#39;memusage/startup&#39;: 132427776,
  &#39;response_received_count&#39;: 1,
  &#39;scheduler/dequeued&#39;: 1,
  &#39;scheduler/dequeued/memory&#39;: 1,
  &#39;scheduler/enqueued&#39;: 1,
  &#39;scheduler/enqueued/memory&#39;: 1,
- &#39;start_time&#39;: datetime.datetime(2022, 9, 13, 17, 20, 28, 272429)}
+ &#39;start_time&#39;: datetime.datetime(2022, 9, 13, 17, 31, 51, 306087)}
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
 {&#39;downloader/request_bytes&#39;: 246,
  &#39;downloader/request_count&#39;: 1,
  &#39;downloader/request_method_count/GET&#39;: 1,
- &#39;downloader/response_bytes&#39;: 5792,
+ &#39;downloader/response_bytes&#39;: 5784,
  &#39;downloader/response_count&#39;: 1,
  &#39;downloader/response_status_count/200&#39;: 1,
- &#39;elapsed_time_seconds&#39;: 1.926758,
+ &#39;elapsed_time_seconds&#39;: 1.921163,
  &#39;finish_reason&#39;: &#39;finished&#39;,
- &#39;finish_time&#39;: datetime.datetime(2022, 9, 13, 17, 20, 30, 199187),
+ &#39;finish_time&#39;: datetime.datetime(2022, 9, 13, 17, 31, 53, 227250),
  &#39;httpcompression/response_bytes&#39;: 18892,
  &#39;httpcompression/response_count&#39;: 1,
  &#39;item_scraped_count&#39;: 1,
  &#39;log_count/DEBUG&#39;: 7,
  &#39;log_count/INFO&#39;: 10,
- &#39;memusage/max&#39;: 131801088,
- &#39;memusage/startup&#39;: 131801088,
+ &#39;memusage/max&#39;: 132694016,
+ &#39;memusage/startup&#39;: 132427776,
  &#39;response_received_count&#39;: 1,
  &#39;scheduler/dequeued&#39;: 1,
  &#39;scheduler/dequeued/memory&#39;: 1,
  &#39;scheduler/enqueued&#39;: 1,
  &#39;scheduler/enqueued/memory&#39;: 1,
- &#39;start_time&#39;: datetime.datetime(2022, 9, 13, 17, 20, 28, 272429)}
+ &#39;start_time&#39;: datetime.datetime(2022, 9, 13, 17, 31, 51, 306087)}
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:scrapy.core.engine:Spider closed (finished)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:20:30 [scrapy.core.engine] INFO: Spider closed (finished)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-13 17:31:53 [scrapy.core.engine] INFO: Spider closed (finished)
 </pre></div>
 </div>
 </div>
@@ -609,6 +587,7 @@ title="Print to PDF"
 <blockquote>
 <div><p><em>{‘judul’: [‘SISTEM PERAMALAN PENJUALAN JANGKA PENDEK SPARE PART SEPEDA MOTOR MENGGUNAKAN NEURAL NETWORK\r\n(Studi Kasus : Suzuki Kemayoran Bangkalan)’], ‘abtraksi’: [‘Spare part merupakan salah satu bagian penting dalam pengoperasian mesin pada sepeda motor. Peningkatan jumlah penjualan spare part yang tidak terduga saat proses tune-up menyebabkan kesulitan dalam pelayanan yang terbaik kepada konsumen. Demikian juga sebaliknya, apabila terjadi penurunan jumlah penjualan spare part, maka akan menyebabkan penumpukan spare part di gudang. Oleh karena itu diperlukan sistem peramalan yang mampu meramalkan penjualan spare part pada periode berikutnya. Sistem peramalan ini menggunakan metode Jaringan Syaraf Tiruan algoritma Propagasi Balik dengan momentum untuk meramalkan jumlah penjualan spare part  pada bulan berikutnya. Data yang telah tersimpan dihitung menggunakan epoh dan learning rate yang berbeda. Dari hasil uji coba system, maka dapat disimpulkan bahwa  dengan menggunakan semua data sebagai data training dan menggunakan learning rate 3.5 dan dengan epoh 200 akan menghasilkan tingkat kesalahan 0.0622716.’]}</em></p>
 </div></blockquote>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -637,20 +616,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to your Jupyter Book</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="VSM.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
@@ -658,7 +623,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Faridz Nur F S N<br/>
+    By The Jupyter Book Community<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
