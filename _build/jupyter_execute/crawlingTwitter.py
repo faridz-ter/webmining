@@ -254,7 +254,7 @@ df_x = data.iloc[:, 1:]
 df_y = data.iloc[:, 0]
 
 
-# In[24]:
+# In[ ]:
 
 
 from sklearn.model_selection import train_test_split
