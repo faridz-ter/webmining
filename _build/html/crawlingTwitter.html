@@ -1,0 +1,1776 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>CRAWLING DATA TWITTER MENGGUNAKAN TWINT &#8212; Web Mining</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="VSM.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Web Mining</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   CRAWLING DATA TWITTER MENGGUNAKAN TWINT
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/crawlingTwitter.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FcrawlingTwitter.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/crawlingTwitter.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mount-google-drive">
+   Mount Google Drive
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intalasi-twint">
+   Intalasi Twint
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crawling-data-twitter">
+   Crawling data twitter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-term-frequent">
+   Matrix Term Frequent
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutual-information">
+   Mutual Information
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>CRAWLING DATA TWITTER MENGGUNAKAN TWINT</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mount-google-drive">
+   Mount Google Drive
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intalasi-twint">
+   Intalasi Twint
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crawling-data-twitter">
+   Crawling data twitter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-term-frequent">
+   Matrix Term Frequent
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutual-information">
+   Mutual Information
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="crawling-data-twitter-menggunakan-twint">
+<h1>CRAWLING DATA TWITTER MENGGUNAKAN TWINT<a class="headerlink" href="#crawling-data-twitter-menggunakan-twint" title="Permalink to this headline">#</a></h1>
+<section id="mount-google-drive">
+<h2>Mount Google Drive<a class="headerlink" href="#mount-google-drive" title="Permalink to this headline">#</a></h2>
+<p>Moount Google Drive dengan Google Collab</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">d5df0069828e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">timeout_ms</span><span class="o">=</span><span class="n">timeout_ms</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">105</span>       <span class="n">ephemeral</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> 
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">120</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> 
+<span class="g g-Whitespace">    </span><span class="mi">122</span>   <span class="n">mountpoint</span> <span class="o">=</span> <span class="n">_os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span>   <span class="n">request_id</span> <span class="o">=</span> <span class="n">send_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">97</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>       <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">if</span> <span class="p">(</span><span class="n">reply</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;colab_reply&#39;</span> <span class="ow">and</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Masuk ke direktori projek Web Mining</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Web Mining
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/Web Mining
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="intalasi-twint">
+<h2>Intalasi Twint<a class="headerlink" href="#intalasi-twint" title="Permalink to this headline">#</a></h2>
+<p>Langkah awal clone terlebih twint dari GitHub TwintProject, lalu kita masuk kedalam folder yang sudah kita clone tadi. Tinggal jalankan script dibawah untuk memasang Twint ke projek kita</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/twintproject/twint.git
+<span class="o">%</span><span class="k">cd</span> twint
+<span class="o">!</span>pip3 install . -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: destination path &#39;twint&#39; already exists and is not an empty directory.
+/content/drive/MyDrive/Web Mining/twint
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Processing /content/drive/MyDrive/Web Mining/twint
+<span class=" -Color -Color-Yellow">  DEPRECATION: A future pip version will change local packages to be built in-place without first copying to a temporary directory. We recommend you use --use-feature=in-tree-build to test your packages with this new behavior before it becomes the default.</span>
+<span class=" -Color -Color-Yellow">   pip 21.3 will remove support for this functionality. You can find discussion regarding this at https://github.com/pypa/pip/issues/7555.</span>
+Requirement already satisfied: aiohttp in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 1)) (3.7.0)
+Requirement already satisfied: aiodns in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 2)) (3.0.0)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 3)) (4.6.3)
+Requirement already satisfied: cchardet in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 4)) (2.1.7)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 5)) (0.6)
+Requirement already satisfied: elasticsearch in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 6)) (8.4.1)
+Requirement already satisfied: pysocks in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 7)) (1.7.1)
+Requirement already satisfied: pandas&gt;=0.23.0 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 8)) (1.3.5)
+Requirement already satisfied: aiohttp_socks&lt;=0.4.1 in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 9)) (0.4.1)
+Requirement already satisfied: schedule in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 10)) (1.1.0)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 11)) (1.17.0)
+Requirement already satisfied: fake-useragent in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 12)) (0.1.11)
+Requirement already satisfied: googletransx in /usr/local/lib/python3.7/dist-packages (from -r requirements.txt (line 13)) (2.4.2)
+Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.21.6)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2.8.2)
+Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (2022.2.1)
+Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp_socks&lt;=0.4.1-&gt;-r requirements.txt (line 9)) (22.1.0)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (6.0.2)
+Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (3.0.4)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (3.0.1)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp-&gt;-r requirements.txt (line 1)) (1.8.1)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.7.3-&gt;pandas&gt;=0.23.0-&gt;-r requirements.txt (line 8)) (1.15.0)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (2.10)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp-&gt;-r requirements.txt (line 1)) (4.1.1)
+Requirement already satisfied: pycares&gt;=4.0.0 in /usr/local/lib/python3.7/dist-packages (from aiodns-&gt;-r requirements.txt (line 2)) (4.2.2)
+Requirement already satisfied: cffi&gt;=1.5.0 in /usr/local/lib/python3.7/dist-packages (from pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (1.15.1)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.5.0-&gt;pycares&gt;=4.0.0-&gt;aiodns-&gt;-r requirements.txt (line 2)) (2.21)
+Requirement already satisfied: elastic-transport&lt;9,&gt;=8 in /usr/local/lib/python3.7/dist-packages (from elasticsearch-&gt;-r requirements.txt (line 6)) (8.4.0)
+Requirement already satisfied: urllib3&lt;2,&gt;=1.26.2 in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (1.26.12)
+Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from elastic-transport&lt;9,&gt;=8-&gt;elasticsearch-&gt;-r requirements.txt (line 6)) (2022.6.15)
+Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;-r requirements.txt (line 11)) (1.52)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from googletransx-&gt;-r requirements.txt (line 13)) (2.28.1)
+Requirement already satisfied: charset-normalizer&lt;3,&gt;=2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;googletransx-&gt;-r requirements.txt (line 13)) (2.1.1)
+Building wheels for collected packages: twint
+  Building wheel for twint (setup.py) ... ?25l?25hdone
+  Created wheel for twint: filename=twint-2.1.21-py3-none-any.whl size=38871 sha256=e6baaca87eb0e23834db29c9919782c6e4ed248bb5438becf452504c38cb73a6
+  Stored in directory: /tmp/pip-ephem-wheel-cache-ju_eqx_8/wheels/ce/ec/44/07ea4188fed75e2ea686655fde89c7e4deabe23f76daf75d4e
+Successfully built twint
+Installing collected packages: twint
+  Attempting uninstall: twint
+    Found existing installation: twint 2.1.21
+    Uninstalling twint-2.1.21:
+      Successfully uninstalled twint-2.1.21
+Successfully installed twint-2.1.21
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pasang aiohttp berguna menyediakan Web-server dengan middlewares dan plugable routing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">aiohttp</span><span class="o">==</span><span class="m">3</span>.7.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: aiohttp==3.7.0 in /usr/local/lib/python3.7/dist-packages (3.7.0)
+Requirement already satisfied: chardet&lt;4.0,&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.4)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (22.1.0)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (1.8.1)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (3.0.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.7/dist-packages (from aiohttp==3.7.0) (6.0.2)
+Requirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (4.1.1)
+Requirement already satisfied: idna&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp==3.7.0) (2.10)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pasang nest-asyncio untuk runtime serentak dalam noteboook</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nest-asyncio
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.7/dist-packages (1.5.5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Import nest-asyncio dan juga twint agar bisa melakukan crawling data di twitter</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nest_asyncio</span>
+<span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">twint</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="crawling-data-twitter">
+<h2>Crawling data twitter<a class="headerlink" href="#crawling-data-twitter" title="Permalink to this headline">#</a></h2>
+<p>Jadi disini kita akan melakukan crawling data yang diunduh dari server twitter. Cara ini cukup simpel, cepat dan gak ribet, karena kita gak perlu punya akun twitter, gak perlu API dan tanpa limitasi juga. Kita hanya perlu sebuah tool yang bernama <strong>twint</strong>.</p>
+<blockquote>
+<div><p><strong>Twint</strong> adalah sebuah tools yang digunakan untuk melakukan scrapping dari aplikasi twitter yang disetting secara khusus menggunakan bahasa pemrograman Python. Twint dapat kita gunakan dan jalankan tanpa harus menggunakan API dari Twitter itu sendiri, dengan kapasitas scrapping data maksimalnya adalah 3200 tweet. Bukan hanya digunakan pada tweet, twint juga bisa kita gunakan untuk melakukan scrapping pada user, followers, retweet dan sebagainya. Twint memanfaatkan operator pencarian twitter untuk memungkinkan proses penghapusan tweet dari user tertentu, memilih dan memilah informasi-informasi yang sensitif, termasuk email dan nomor telepon di dalamnya.</p>
+</div></blockquote>
+<p>Data yang kita ambil ialah pemberitaan terbaru mengenai data dari negara Indonesia yang sedang diretas oleh orang luar negeri berinisial “Bjorka”. Kata kunci yang digunakan ‘databocor’ pada <strong>c.search</strong>, menggunakan Pandas pada <strong>c.Pandas</strong>, menggunakan limitasi data sebanyak 80 data pada <strong>c.Limit</strong>, dengan menggunakan custom data yang dimasukkan ke csx dengan label Tweet dan data yang diambil tweet-nya saja. Output atau data akan dimasukkan ke dalam file <strong>csv</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">twint</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Search</span> <span class="o">=</span> <span class="s1">&#39;databocor&#39;</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Pandas</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Limit</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Store_csv</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Custom</span><span class="p">[</span><span class="s2">&quot;tweet&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tweet&quot;</span><span class="p">]</span>
+<span class="n">c</span><span class="o">.</span><span class="n">Output</span> <span class="o">=</span> <span class="s2">&quot;data.csv&quot;</span>
+<span class="n">twint</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Search</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1569536578875281408 2022-09-13 04:00:55 +0000 &lt;PostGorontalo&gt; #DataBocor Mahfud Akui Data Pejabat Diretas Bjorka, Data Luhut Diposting di Telegram  https://t.co/VgqzoUf3da
+1569511624184311811 2022-09-13 02:21:45 +0000 &lt;fajaronline&gt; BSSN Anggarkan Rp 1,8 Miliar untuk Buat Kolam Ranang, Fadli Zon: Lebih Penting dari Keamanan Siber  https://t.co/YVePTxowe4 #BSSN #DataBocor #FadliZon #KolamRenang
+1569504645663571968 2022-09-13 01:54:02 +0000 &lt;hitmeup_flora&gt; @NadiBangsa @nvcarenvmind @opposite090l92 @bjorkanism Terus mau nyalahin siapa dong , ini udah nunjukin bahwa data kita gak di lindungi sama sekali wkwkwk daftar sim card-databocor-himbauan basi suruh ganti kata sandi.. ya udhlah ya , nyimak aja apa yang di perbuat si hacker itu 🤣
+1569340924081340417 2022-09-12 15:03:27 +0000 &lt;mohamadyani78&gt; #Demo versi IT... #databocor #hackerbjorka panen fans, hingga jadi #trending di #Media masa dan #Viral di #Indonesia banyak #Data bocor. Masyarakat tak panik jika yang menjaga #data nya tidak kebobolan. #Pemerintah perlu solusi realistis.
+1569335649844752385 2022-09-12 14:42:30 +0000 &lt;fajaronline&gt; Puan Desak Pemerintah Segera Audit Keamanan Siber  https://t.co/1zBpy5mKNX #AuditKeamanan #DataBocor #PuanMaharani
+1569329728154406912 2022-09-12 14:18:58 +0000 &lt;Evhylmardjani&gt; Bjorka hecker.??? hahaha, kominfo butuh proyek broo udah brapatahun tidur tanpa asupan dana. Dari kmarin nyari duit ancam blokar blokir sosmed hahaha. Pake logika.  #Bjorka #bjorkanism #kominfo #hacker #hackerbjorka #databocor
+1569317648055541760 2022-09-12 13:30:58 +0000 &lt;KabarMalangCom&gt; Pihak UB Koordinasi dengan BSSN Terkait Data Mahasiswa Alumi yang Tersebar, Terkait peretas yang di duga menyebarkan data alumni Mahasiswa S1 Universitas Brawijaya (UB) tahun 2020 #databocor #universitasbrawijaya #BSSN   https://t.co/LduVGn6Yyk
+1569317010789781505 2022-09-12 13:28:26 +0000 &lt;Andra_cukup&gt; Data pribadi milik Menteri Koordinator Bidang Kemaritiman dan Investasi Luhut Binsar Pandjaitan dibocorkan oleh akun bernama Bjorka #bjorka #luhut #databocor #kebocorandata #luhutbinsarpandjaitan #viral #news #trending  Selengkapnya;  https://t.co/YUtRF8xw2d
+1569306679162064902 2022-09-12 12:47:23 +0000 &lt;PiResearchMedia&gt; Some  Marketing Tips: (Grab it, Free of Cost 😁)  1. Know who you’re targeting  2. Create delightful products and practice smart marketing  3. Consumers are smarter than you think  4. Do SEO for your existing pages #research #MarketingStrategy #todaystip #databocor
+1569305112757305344 2022-09-12 12:41:09 +0000 &lt;intimeID&gt; Instruksi Presiden Jokowi Tangani Dugaan Data Bocor  https://t.co/PoL1ESMpeY  #Bjorka #Jokowi #DataBocor
+1569293918256205825 2022-09-12 11:56:40 +0000 &lt;adjatwiratma&gt; Data mu aman ? Data Pejabat Negara saja bocor, yang tanggung jawab siapa 😓 . . #mncnewsprime #adjatwiratma #mncnewschannelno1 @mncnewschannel w/ @bssn_ri @christinaaryani @sutadiheru #databocor #databocorlagi  https://t.co/TdBs0ZZx7U
+1569283214677790723 2022-09-12 11:14:08 +0000 &lt;intimeID&gt; Marak Data Bocor, BSSN: Sistem Elektronik Aman Tidak Diserang  https://t.co/G0I1hc3x32  #DataBocor #BSSN #Bjorka
+1569272022445993987 2022-09-12 10:29:40 +0000 &lt;kompascom&gt; Kasus Munir kembali menjadi perbincangan selepas hacker Bjorka mengunggah dokumen tentang sosok yang disebutnya sebagai pembunuh Munir. / #Hacker #Bjorka #Pemerintah #Indonesia #Publik #DataBocor #Kebocorandata #JernihMelihatDunia   Baca di  https://t.co/3WkngP1d5N  https://t.co/flpzeX93Po
+1569267261801897985 2022-09-12 10:10:45 +0000 &lt;insahu&gt; G Plate itu bisa mundur nggak sih? #Bjorka  #databocor
+1569262211318829056 2022-09-12 09:50:41 +0000 &lt;KabarMalangCom&gt; Data Mahasiswa Alumi UB Angkatan 2020, Tersebar, Peretas di duga menyebarkan data alumni Mahasiswa S1 Universitas Brawijaya (UB) tahun 2020 #databocor #alumniUB #angkatan2020   https://t.co/GyzyzTciZq
+1569260413312966656 2022-09-12 09:43:32 +0000 &lt;kompascom&gt; Bjorka kemudian membagikan data pribadi yang diduga milik sejumlah pejabat publik Indonesia melalui grup Telegram miliknya. / #Hacker #Bjorka #Pemerintah #Indonesia #Kemenkominfo #Publik #DataBocor #Kebocorandata #JernihMelihatDunia   Baca di  https://t.co/3WkngP1d5N  https://t.co/9OLZdbfZQD
+1569254795860639744 2022-09-12 09:21:13 +0000 &lt;kompascom&gt; Pada 9 September 2022, Bjorka kembali mengklaim memiliki dokumen surat-menyurat yang diduga milik Presiden Joko Widodo. / #Hacker #Bjorka #Pemerintah #Indonesia #Publik #DataBocor #Kebocorandata #JernihMelihatDunia   Baca di  https://t.co/3WkngP1d5N  https://t.co/4syRRHhnwc
+1569254259421757440 2022-09-12 09:19:05 +0000 &lt;kompascom&gt; Pada 6 September 2022, Bjorka kembali membeberkan mengenai adanya kebocoran data sekitar 105 juta penduduk Indonesia. / #Hacker #Bjorka #Pemerintah #Indonesia #Kemenkominfo #Publik #DataBocor #Kebocorandata #JernihMelihatDunia   Baca di  https://t.co/3WkngP1d5N  https://t.co/ZmQRuU4Pzj
+1569250594006892544 2022-09-12 09:04:31 +0000 &lt;kompascom&gt; 31 Agustus 2022, Bjorka di Breached Forums kembali mengklaim memiliki file terkompresi sebesar 18 GB berisi data kartu SIM dari pelanggan Indonesia. / #Hacker #Bjorka #Pemerintah #Indonesia #DataBocor #Kebocorandata #JernihMelihatDunia   Baca di  https://t.co/3WkngP1d5N  https://t.co/EeHfpG5UMS
+1569249580491116544 2022-09-12 09:00:29 +0000 &lt;kompascom&gt; Pada 20 Agustus 2022, Bjorka mengumumkan bahwa dirinya menjual 26 juta data riwayat pencarian pengguna IndiHome di situs Breached Forums. / #Tren #Hacker #Bjorka #Pemerintah #Indonesia #Kemenkominfo #Publik #DataBocor #Jokowi #JernihMelihatDunia  https://t.co/ZPWKIpWNEt
+1569248810949562370 2022-09-12 08:57:26 +0000 &lt;kompascom&gt; Sejumlah dugaan kebocoran data yang dibeberkan &quot;Hacker&quot; Bjorka, mulai dari data masyarakat Indonesia, data diri para pejabat negara, hingga kasus Munir. / #Tren #Hacker #Bjorka #Indonesia #DataBocor #Kebocorandata #JernihMelihatDunia   Baca di  https://t.co/3WkngP1d5N  https://t.co/n0x3qlQE1T
+1569241908513325056 2022-09-12 08:30:00 +0000 &lt;RRIPrograma3&gt; BSSN Telusuri Dugaan Kebocoran Data Penyelenggara Sistem Elektronik   https://t.co/Fb5JpQ11pu #bssn #databocor
+1569233379371134978 2022-09-12 07:56:07 +0000 &lt;kompastv_jabar&gt; Data Pribadi Diperjualbelikan di Forum Online  https://t.co/kfGGPCtxWl  #databocor #ktp #nik #kamujahat #bjorkanism #Online #Data #bandung #kompastvjabar  https://t.co/YsuZB0TiMC
+1569220799890063360 2022-09-12 07:06:08 +0000 &lt;fajaronline&gt; Mahfud MD TegaskanData yang Diunggah Bjorka Tidak Ada Kaitannya dengan Data Rahasia Negara  https://t.co/8ptkDhmqhu #Bjorka #DataBocor #headline #MahfudMD
+1569181251873165317 2022-09-12 04:28:59 +0000 &lt;AliveGodX&gt; #bjorkanism #JohnnyGPlate #databocor #OpenSource #Indonesia #AliveGod  https://t.co/NHPvvuTghh
+1569178701321084929 2022-09-12 04:18:50 +0000 &lt;muslimf&gt; @cnbcindonesia  https://t.co/hWm91XmjjX  Data pribadi bocor kerap ditemui. Sayang, negara tidak bisa melindungi warganya karena UU terkait belum ada. Warga BSD pun melayangkan surat ke Jokowi. #daruratdigital #databocor #PDP
+1569176632111566848 2022-09-12 04:10:37 +0000 &lt;fajaronline&gt; Data PSE Alami Kebocoran, Mardani Ali Sera: Ini Jadi Tamparan Atas Kewibawaan Pemerintah  https://t.co/Iz4AF3cpnV #DataBocor #headline #KebocoranData #MardaniAliSera
+1569149253506977792 2022-09-12 02:21:50 +0000 &lt;inilahbdgcom&gt; Bjorkanism Tumbang, Muncul Akun Baru Hacker Bjorka di Twitter?  https://t.co/WCfo8RMnZz   #inilahbandung #bjorkanism #Bjorka #Hackers #databocor #kebocorandata #Indonesia #info #berita  https://t.co/ogH3FLV9gn
+1569122166813368321 2022-09-12 00:34:12 +0000 &lt;aciangfung&gt;  https://t.co/jsYMyJebuj  #databocor
+1569092651621957632 2022-09-11 22:36:55 +0000 &lt;IkramMalvin&gt; #HoaxDataBocor #LindungiDatamu #DatakuAman #databocor  https://t.co/kFeX9P36rz
+1569092612476538884 2022-09-11 22:36:45 +0000 &lt;IkramMalvin&gt; #HoaxDataBocor #LindungiDatamu #DatakuAman #databocor  https://t.co/SsXSEkR9Ih
+1569092574287400960 2022-09-11 22:36:36 +0000 &lt;IkramMalvin&gt; #HoaxDataBocor #LindungiDatamu #DatakuAman #databocor  https://t.co/YLLmJwBH3D
+1569010742560686081 2022-09-11 17:11:26 +0000 &lt;sunflowers_boys&gt; Data bocor dan hacker itu mengungkapkan Kisah kelam bumi pertiwi ini -inisial G- #databocor #baubusuk #tercium
+1568996325961924609 2022-09-11 16:14:09 +0000 &lt;emhaidarr&gt; Kedaulatan data; Negara tidak boleh kalah dengan para hacker!   #databocor
+1568949986494414849 2022-09-11 13:10:01 +0000 &lt;intimeID&gt; Akun Hilang, Bjorka Muncul Lagi dan Membuka Data Menko Luhut  https://t.co/kF3Qbik1nh  #Bjorka #LuhutBinsarPandjaitan #DataBocor
+1568895357962317826 2022-09-11 09:32:56 +0000 &lt;suka_sibuk&gt; Mulaii panikkk ygy sampek Pemerintah Indonesia collab ama BuzzerRP buat nyerang balik @bjorkanism  #bjorkanism  #databocor  https://t.co/A1MjCoYtLu
+1568884680153530370 2022-09-11 08:50:30 +0000 &lt;Assanditriputra&gt; Analoginya ..kalian Mabok2an sama gank kalian...giliran bayar kita2 yg ga ikutan mabok2an disuruh ikut patungan!!! Ente sehat... #databocor #tanggungjawabbersama #ngeBO
+1568884216703913986 2022-09-11 08:48:40 +0000 &lt;lampungpost_&gt; Badan Siber dan Sandi Negara (BSSN) menyampaikan telah melakukan penelusuran terhadap beberapa dugaan insiden kebocoran data terkait dokumen dan surat kepresidenan.  #BSSN #DataBocor #Kebocorandata #lampungpost  https://t.co/OfbP6URp0P.
+1568882739365163010 2022-09-11 08:42:48 +0000 &lt;NewsBreaking90&gt; Berita terbaru kebocoran data  https://t.co/bD3lej0UZf #databocor  #Viral  #TikTok  https://t.co/wlv8izL3MX
+1568882610084139008 2022-09-11 08:42:17 +0000 &lt;mataharitimoer&gt; lapor ke kominfo ❎ lapor ke bssn ❎ lapor ke sini ✅  #databocor #databreach  https://t.co/WSbZ68GmW2
+1568879478067335171 2022-09-11 08:29:50 +0000 &lt;AmadoDamn&gt; Kenapa nama gw ada di daftar anggota partai politik?  Efek data komintol bocor?  Atau gmn?  #Bjorka #Kominfo #databocor  https://t.co/hgKSOb2Q5m
+1568877190363910144 2022-09-11 08:20:45 +0000 &lt;chuakzz17806911&gt; data bocor? orang Kominfo bingung? ya iyalah bingung, masuk kerja aja lewat orang dalam chuakzzzz #databocor
+1568872075728941057 2022-09-11 08:00:25 +0000 &lt;JNursiyono&gt; Berikut analisis sentimen kebijakan kenaikan harga BBM selama 26 Agustus -10 September 2022. #TolakTerusKenaikanBBM #TolakKenaikanBBM #TolakKenaikanHargaBBM #BBM #bbmnaik #Data #DataScience #BigData #tiktokhot #Viral #TikTokLive #databocor #LoveStory #indoviral #earthquake  https://t.co/89kN4rcNAH
+1568864922292944896 2022-09-11 07:32:00 +0000 &lt;holopiscom&gt; Anggota Komisi I DPR RI, Sukamta menyampaikan bahwa Rancangan Undang-Undang Perlindungan Data Pribadi (RUU PDP) akan segera disahkan menjadi undang-undang (UU) dalam waktu dekat. @DPR_RI  #RUUPDP #databocor   https://t.co/5GW6Xugplh
+1568861939660636161 2022-09-11 07:20:09 +0000 &lt;intimeID&gt; Kemarin Johny, Hari Ini Bjorka Sapa Puan Hingga Denny Siregar  https://t.co/iFihcJV8oz  #Bjorka #Bjorkanism #Doxing #PuanMaharani #DataBocor
+1568837317372280834 2022-09-11 05:42:18 +0000 &lt;bj669ml&gt; paling gampang cek aja instansi2 yang datanya bocor pakai isp apa ? apakah isp tsbt pernah bocor datanya ? termasuk ip adresess nya ? #databocor
+1568824913552879620 2022-09-11 04:53:01 +0000 &lt;Riyan_ardd&gt; Penasaran ama grup wa kominfo ama pemerintahan wkwkwk  #Bjorka  #bjorkanism  #munir  #databocor
+1568817939650052098 2022-09-11 04:25:18 +0000 &lt;Koakset&gt; Eh penonton... katanya ada yang panik sama keberpihakan masyarakat ke hacker ilegal, lah situ gagal jadi sosok pahlawan yg pro rakyat sih 😂  #koakset #komikakalsehat #vforvendetta #stopbeinganidiot #kominfo #databocor #bjorka #hackerindonesia #hackerbjorka  https://t.co/874sVfwjnQ
+1568745497527201792 2022-09-10 23:37:27 +0000 &lt;afi_kusumo&gt; Lebih baik telat daripada kagak sama sekali   #databocor
+1568612105242443778 2022-09-10 14:47:23 +0000 &lt;tyskmtgts&gt; Karena data pribadi Pakde sm Wapres dah bocor sebelumnya? #Bjorka #databocor
+1568608970428006400 2022-09-10 14:34:56 +0000 &lt;fajaronline&gt; Kisruh Data Bocor, BSSN Sebut masih Lakukan Langkah Ini …  https://t.co/9CQF4ccdkE #DataBocor #Hacker
+1568594632917028866 2022-09-10 13:37:58 +0000 &lt;akhmadf21&gt;  https://t.co/ndSCQjnxkA #Bjorka #DokumenPresiden #klaim #DataBocor
+1568582888060514306 2022-09-10 12:51:18 +0000 &lt;cameoproject_&gt; Haduh.... Jadi apa nih pak fungsi kominfo? Mana gak cuman sekali lagi bocornya! 😵‍💫  Tonton full videonya di YT Cameo, link di bio! ( https://t.co/ZkTp0YAJcT)  #cameoproject #kominfo #databocor #hacker  https://t.co/zinaGKxayD
+1568559236287975426 2022-09-10 11:17:19 +0000 &lt;Alexand14390361&gt; Mengapa rakyat indonesia memuja-muja Bjorka padahal dia ngehack dan membocorkan data pribadi mereka sendiri?dan membully rakyat indonesia sendiri?  #kominfo #databocor
+1568558682534985728 2022-09-10 11:15:06 +0000 &lt;Manusia90528218&gt; Ketika data rakyat dicuri mereka tidak peduli namun ketika data mereka sendiri diambil mereka panik, indahnya negri ku. Pejabat nomor 1, rakyat no 100.  September,2022. #hackerbjorka #Indonesia #databocor
+1568555006978150402 2022-09-10 11:00:30 +0000 &lt;holopiscom&gt; Badan Intelijen Negara (BIN) akhirnya angkat bicara terkait isu kebocoran ribuan surat yang dikirim oleh pihaknya kepada Presiden Joko Widodo (Jokowi). @binofficial_ri  @setpresRI #DataBocor  https://t.co/LlVVGBkeLd
+1568554883032272902 2022-09-10 11:00:01 +0000 &lt;rocknewsnetwork&gt; Bjorka meresahkan 😓  #supportlocal #foryourpage #tiktok #k #wonderfullombok #beritahariini #wonderfullombok #beritahariini #mediasosial #repostplus #holareels #reelsindonesia #videooftheday #newstoday #newsofheday #hackerbjorka #Bjorka #databocor  https://t.co/o6T9XMakra
+1568538524856758275 2022-09-10 09:55:01 +0000 &lt;intimeID&gt; Kasetpres Bantah Data Surat dan Dokumen Presiden Bocor  https://t.co/sJjfIWTYUg  #Bjorka #DataBocor #SuratPresiden
+1568531600966664192 2022-09-10 09:27:30 +0000 &lt;kompascom&gt; 7. &quot;Saya rasa penegak hukum akan melakukan tindakan hukum. Nanti akan ada pernyataan resmi pejabat terkait,&quot; ucap Kepala Sekretariat Presiden Heru Budi Hartono. Simak informasi selengkapnya dalam artikel berikut. * #BIN #DataBocor #Bjorka  https://t.co/q1AngfaJKI
+1568530594249822208 2022-09-10 09:23:30 +0000 &lt;kompascom&gt; 6. Juru Bicara BIN Wawan Hari Purwanto juga menepis kabar dokumen atau surat-surat dari BIN untuk Presiden telah bocor. Wawan menegaskan, surat untuk presiden diberi pengaman khusus. * #BIN #DataBocor #Bjorka  https://t.co/PHFYuhIWyQ
+1568529084375875585 2022-09-10 09:17:30 +0000 &lt;kompascom&gt; 5. Kepala Sekretariat Presiden Heru Budi Hartono memastikan, tidak ada satu pun dokumen surat menyurat Presiden Joko Widodo yang diretas. * #BIN #DataBocor #Bjorka  https://t.co/6QM0caZ6Yb
+1568528138535321601 2022-09-10 09:13:44 +0000 &lt;kompascom&gt; 4. Dokumen tersebut antara lain “Permohonan Dukungan Sarana dan Prasarana&quot;, &quot;Surat Rahasia kepada Presiden dalam amplop tertutup&quot; dan &quot;Gladi Bersih dan Pelaksanaan Upacara Bendera pada Peringatan HUT ke-74 Tahun 2019&quot;.* #BIN #DataBocor #Bjorka  https://t.co/ROemZ3WHTt
+1568526567759831045 2022-09-10 09:07:30 +0000 &lt;kompascom&gt; 3. Dokumen-dokumen periode 2018-2021 itu diunggah di situs  https://t.co/RtNzC8sEPw dan salah satu dokumen berasal dari Badan Intelijen Negara (BIN) untuk Presiden Jokowi. * #BIN #DataBocor #Bjorka  https://t.co/q1AngfaJKI
+1568524932350447616 2022-09-10 09:01:00 +0000 &lt;kompascom&gt; 2. Dalam unggahannya, hacker tersebut menjelaskan bahwa telah mengunggah total 679.180 dokumen berukuran 40 MB. * #BIN #DataBocor #Bjorka  https://t.co/WglwlnIMkn
+1568523925214085120 2022-09-10 08:57:00 +0000 &lt;kompascom&gt; 1. Kali ini, hacker mengklaim telah memiliki surat dan dokumen yang ditujukan ke Presiden Republik Indonesia. Disebutkan bahwa dokumen untuk Kepala Negara itu dibocorkan ke deep web oleh aktor jahat bernama Bjorka. * #BIN #DataBocor #Bjorka  https://t.co/PHFYuhIWyQ
+1568523302158893057 2022-09-10 08:54:31 +0000 &lt;jalalsangar&gt; Mosok bjorka orang Indonesia yang bisa geser satelit #databocor
+1568522962776752128 2022-09-10 08:53:10 +0000 &lt;kompascom&gt; {Thread}  Ramai soal Surat Rahasia untuk Presiden Diklaim Bocor, BIN Tegaskan Hoaks * #BIN #DataBocor #Bjorka    https://t.co/PHFYuhJuoo
+1568466498523656196 2022-09-10 05:08:48 +0000 &lt;OngisSiang&gt; SALE SALE SALE  HOODIE JUMPER BY TOP TEN  SIZE M LD116/P68 WARNA PEKAT LIKE NEW  HARGA 115K AJA FREEONG IN SHOPEE 😀 #bjorka #databocor #ceritahoror #sarapan #demobbm #TolakKenaikanBBM #ceritahaid #ceritanakal #diskongede #jakartaselatan #demojakarta  https://t.co/BcpWKYpTQY
+1568267326126198784 2022-09-09 15:57:22 +0000 &lt;asal_info&gt; Apalagi ini?? Rentan bgt data di Indonesia (kalau valid)  https://t.co/tmUuGnRLxs  #kpu #databocor #data #Hackers
+1568111235811667969 2022-09-09 05:37:07 +0000 &lt;langittluas&gt; Tuh kan bocor lagi. Nambalnya pake apa sih? Dah coba Aquaproof belum? Coba dah, dijamin no wahid  #databocor
+1568078832007278594 2022-09-09 03:28:21 +0000 &lt;seekerzl&gt; Sekarang berada di pasaran ya gaes ya   Menkominfo idiot #databocor  https://t.co/P8nqt9sG6P
+1568062895019413504 2022-09-09 02:25:02 +0000 &lt;exsantrii&gt; Bentar lagi viral pastii, setelah bocor 1,3M SIMCARD bocor. Ini anget banget soalnya tadi dini hari jam 01. Data Ijasah lengkat sama KTP, Akta dan KK. Dijual $100. #kominfo #bocor #databocor  https://t.co/GOYkeWlWp0
+1568041903815557121 2022-09-09 01:01:37 +0000 &lt;langittluas&gt; Kasih tau bang, badeur banget jadi bocah yak. Malah tunjuk sana tunjuk sini. Kata gw mah, kalo data bocor tinggal dikasih Aquaproof aja beres. Genteng rumah gw juga dah ga bocor lagi...alhamdulilah aman. Dah cobain dah.  #databocor #kominfo #kpu #konoha  https://t.co/WCzDU2ENrD
+1567907584350502914 2022-09-08 16:07:53 +0000 &lt;Anak_Bontot_9&gt; @ShopeeID Bangsat siapa pelakunya Jauh tidak Sama Yang Punya Toko? #ShopeePelindungSellerAnjenk #DataBocor  https://t.co/N3ZpX4xntj
+1567899667089997825 2022-09-08 15:36:25 +0000 &lt;librarynanang&gt; Harga minyak dunia terjun bebas, harga BBM Nasional meroket  Hacker dunia iseng, data Nasional ludes  #BBMNaik_RakyatMenjerit  #databocor
+1567893466474229762 2022-09-08 15:11:47 +0000 &lt;OngisSiang&gt; SALE SALE SALE  CREWNECK RAJUT BY UNIQLO  SIZE M LD 126/P 65 FULL RAJUT KEPANG ACCENT KEPANG BESAR LIKE NEW  SALE JADI 99K FREEONGKIR IN SHOPEE😄 #bbmnaik #kominfo #databocor #sambo #nikbocor #Demomahasiswa #demobbm  https://t.co/p4ghZ1P9AC
+1567848564604420096 2022-09-08 12:13:21 +0000 &lt;BlockmanOppi&gt; @kemkominfo Ya inilah negara konoha #databocor #kominfo semua pekerja semua orang tomlol gak tahu teknologi.
+1567768882886373377 2022-09-08 06:56:44 +0000 &lt;GTVID_News&gt; Situs Forum Hacker Penjual Data  https://t.co/5kPDjeoGpN  #GTVNews #GTV #Hacker #PLN #IndiHome #JasaMarga #KebocoranData #DataBocor  https://t.co/Lbb4t3ZEDZ
+1567714881767604224 2022-09-08 03:22:09 +0000 &lt;Anak_Bontot_9&gt; @agitavia @hhaeeew Hati hati no penipu  Dengan modus mengirimkan barang menggunakan akun fake lalu belanja di toko sendiri. Dgn alamat tujuan acak/ dapat dr toko sebelah . Lewat COD #DataBocor  https://t.co/p1flQrVaBs
+1567697504694849536 2022-09-08 02:13:06 +0000 &lt;Alsyundawy&gt; Masa cuma bilang data bukan bocor dari tempat lo lalu masalahnya selesai @kemkominfo. Lo kan yg wajibkan kita kasih data dan sekarang datanya bocor. Dasar sekate² , ente suka ngandi² , ente nih kadang² seringnya gak ngotak, #BlokirKominfo #databocor cc @jokowi @PolhukamRI @DPR_RI
+</pre></div>
+</div>
+</div>
+</div>
+<p>Membuka file <strong>csv</strong> yang sudah dilabeli secara manual dengan 3 kelas yaitu positif, netral, dan negatif.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Web Mining/webmining
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/Web Mining/webmining
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dataBocor.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-824ca998-e5a9-4a3c-9025-2cb0c8a3833a">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>#DataBocor Mahfud Akui Data Pejabat Diretas Bj...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BSSN Anggarkan Rp 1,8 Miliar untuk Buat Kolam ...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>@NadiBangsa @nvcarenvmind @opposite090l92 @bjo...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>#Demo versi IT... #databocor #hackerbjorka pan...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Puan Desak Pemerintah Segera Audit Keamanan Si...</td>
+      <td>positif</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>SALE SALE SALE  CREWNECK RAJUT BY UNIQLO  SIZE...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>@kemkominfo Ya inilah negara konoha #databocor...</td>
+      <td>negatif</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Situs Forum Hacker Penjual Data  https://t.co/...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>@agitavia @hhaeeew Hati hati no penipu  Dengan...</td>
+      <td>netral</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Masa cuma bilang data bukan bocor dari tempat ...</td>
+      <td>negatif</td>
+    </tr>
+  </tbody>
+</table>
+<p>80 rows × 2 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-824ca998-e5a9-4a3c-9025-2cb0c8a3833a')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-824ca998-e5a9-4a3c-9025-2cb0c8a3833a button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-824ca998-e5a9-4a3c-9025-2cb0c8a3833a');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="matrix-term-frequent">
+<h2>Matrix Term Frequent<a class="headerlink" href="#matrix-term-frequent" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p><strong>NLTK</strong> adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Python Sastrawi</strong> adalah pengembangan dari proyek PHP Sastrawi. Python Sastrawi merupakan library sederhana yang dapat mengubah kata berimbuhan bahasa Indonesia menjadi bentuk dasarnya. Sastrawi juga dapat diinstal melalui “pip”</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nltk
+<span class="o">!</span>pip install Sastrawi
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: nltk in /usr/local/lib/python3.7/dist-packages (3.7)
+Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
+Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
+Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.1.0)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting Sastrawi
+  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
+     |████████████████████████████████| 209 kB 7.9 MB/s 
+?25hInstalling collected packages: Sastrawi
+Successfully installed Sastrawi-1.0.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pembuatan matriks menggunakan module pandas beserta numpy agar matriks yang dibuat sesuai dengan kebutuhan.</p>
+<blockquote>
+<div><p><strong>Pandas</strong> adalah sebuah library di Python yang berlisensi BSD dan open source yang menyediakan struktur data dan analisis data yang mudah digunakan. Pandas biasa digunakan untuk membuat tabel, mengubah dimensi data, mengecek data, dan lain sebagainya. Struktur data dasar pada Pandas dinamakan DataFrame, yang memudahkan kita untuk membaca sebuah file dengan banyak jenis format seperti file .txt, .csv, dan .tsv. Fitur ini akan menjadikannya table dan juga dapat mengolah suatu data dengan menggunakan operasi seperti join, distinct, group by, agregasi, dan teknik lainnya yang terdapat pada SQL.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>NumPy</strong> merupakan singkatan dari Numerical Python. NumPy merupakan salah satu library Python yang berfungsi untuk proses komputasi numerik. NumPy memiliki kemampuan untuk membuat objek N-dimensi array. Array merupakan sekumpulan variabel yang memiliki tipe data yang sama. Kelebihan dari NumPy Array adalah dapat memudahkan operasi komputasi pada data, cocok untuk melakukan akses secara acak, dan elemen array merupakan sebuah nilai yang independen sehingga penyimpanannya dianggap sangat efisien.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Function Remove Stopwords</strong> berguna menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM. Kita meenggunakan kumpulan stopword dari github yang berjumlah sekitar 700 kata.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_stopwords</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/Web Mining/webmining/stopwords.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">stopwords</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">]</span>
+    
+    <span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">]</span>
+                     
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Stemming</strong> merupakan proses mengubah kata dalam bahasa Indonesia ke akar katanya atau tidak ada kata yang berimbuhan pada awal maupun akhir kata serta tidak ada kata yang berulangan misalkan ‘anak perempuan berjalan - jalan’ menjadi ‘anak perempuan jalan’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stemming</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Preprocessing</strong> terdiri dari beberapa tahapan yang terdiri dari :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Mengubah Text menjadi huruf kecil</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Menghilangkan Url didalam Text</p></li>
+<li><p>Mengubah/menghilangkan tanda (misalkan garis miring menjadi spasi)</p></li>
+<li><p>Melakukan tokenization kata dan Penghapusan Kata yang tidak digunakan</p></li>
+<li><p>Memfilter kata dari tanda baca</p></li>
+<li><p>Mengubah kata dalam bahasa Indonesia ke akar katanya</p></li>
+<li><p>Menghapus String kosong</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1">#case folding</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="c1">#remove urls</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;http\S+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="c1">#replace weird characters</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;“&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;”&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="c1">#tokenization and remove stopwords</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">remove_stopwords</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="c1">#remove punctuation    </span>
+    <span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>    
+    <span class="c1">#stemming</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">stemming</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="c1">#remove empty string</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Membuat matriks term frekuensi yang sudah dilakukan <strong>Preprocessing</strong> pada data crawling. Data yang kosong diisi dengan angka 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;tweet&#39;</span><span class="p">]):</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Doc &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>    
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+    <span class="n">tf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tf</span><span class="p">,</span> <span class="n">doc</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Term&#39;</span>
+<span class="n">tf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tf</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">tf</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">tf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-df366436-5d97-4024-b6c1-40ab4518e313">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Doc 1</th>
+      <th>Doc 2</th>
+      <th>Doc 3</th>
+      <th>Doc 4</th>
+      <th>Doc 5</th>
+      <th>Doc 6</th>
+      <th>Doc 7</th>
+      <th>Doc 8</th>
+      <th>Doc 9</th>
+      <th>Doc 10</th>
+      <th>...</th>
+      <th>Doc 71</th>
+      <th>Doc 72</th>
+      <th>Doc 73</th>
+      <th>Doc 74</th>
+      <th>Doc 75</th>
+      <th>Doc 76</th>
+      <th>Doc 77</th>
+      <th>Doc 78</th>
+      <th>Doc 79</th>
+      <th>Doc 80</th>
+    </tr>
+    <tr>
+      <th>Term</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>databocor</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>mahfud</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>aku</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>jabat</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>kadang</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>ngotak</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>blokirkominfo</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>cc</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>polhukamri</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>634 rows × 80 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-df366436-5d97-4024-b6c1-40ab4518e313')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-df366436-5d97-4024-b6c1-40ab4518e313 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-df366436-5d97-4024-b6c1-40ab4518e313');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="mutual-information">
+<h2>Mutual Information<a class="headerlink" href="#mutual-information" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U scikit-learn
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.7/dist-packages (1.0.2)
+Requirement already satisfied: scipy&gt;=1.1.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.7.3)
+Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
+Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.1.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">])</span>
+<span class="n">idf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">)</span>
+<span class="n">idf</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Inverse Document Frequency&#39;</span><span class="p">]</span>
+<span class="n">idf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">idf</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-29b5953b-bbb9-4a1b-b822-f395cbe05f9b">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Document Frequency</th>
+      <th>Inverse Document Frequency</th>
+    </tr>
+    <tr>
+      <th>Term</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>databocor</th>
+      <td>80</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>mahfud</th>
+      <td>2</td>
+      <td>1.602060</td>
+    </tr>
+    <tr>
+      <th>aku</th>
+      <td>1</td>
+      <td>1.903090</td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td>40</td>
+      <td>0.301030</td>
+    </tr>
+    <tr>
+      <th>jabat</th>
+      <td>6</td>
+      <td>1.124939</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>kadang</th>
+      <td>1</td>
+      <td>1.903090</td>
+    </tr>
+    <tr>
+      <th>ngotak</th>
+      <td>1</td>
+      <td>1.903090</td>
+    </tr>
+    <tr>
+      <th>blokirkominfo</th>
+      <td>1</td>
+      <td>1.903090</td>
+    </tr>
+    <tr>
+      <th>cc</th>
+      <td>1</td>
+      <td>1.903090</td>
+    </tr>
+    <tr>
+      <th>polhukamri</th>
+      <td>1</td>
+      <td>1.903090</td>
+    </tr>
+  </tbody>
+</table>
+<p>634 rows × 2 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-29b5953b-bbb9-4a1b-b822-f395cbe05f9b')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-29b5953b-bbb9-4a1b-b822-f395cbe05f9b button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-29b5953b-bbb9-4a1b-b822-f395cbe05f9b');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">df_y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">Y_train</span><span class="p">,</span><span class="n">Y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                                               <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Document Frequency&#39;</span><span class="p">],</span>
+                                               <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                                               <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
+<span class="n">mutual_info</span><span class="o">=</span><span class="n">mutual_info_classif</span><span class="p">(</span><span class="n">df_x</span><span class="p">,</span><span class="n">df_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">24</span><span class="o">-</span><span class="mi">9</span><span class="n">a226bb80a2b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">mutual_info</span><span class="o">=</span><span class="n">mutual_info_classif</span><span class="p">(</span><span class="n">df_x</span><span class="p">,</span><span class="n">df_y</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/sklearn/feature_selection/_mutual_info.py</span> in <span class="ni">mutual_info_classif</span><span class="nt">(X, y, discrete_features, n_neighbors, copy, random_state)</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="sd">     check_classification_targets(y)</span>
+<span class="ne">--&gt; </span><span class="mi">464</span><span class="sd">     return _estimate_mi(X, y, discrete_features, True, n_neighbors, copy, random_state)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/sklearn/feature_selection/_mutual_info.py</span> in <span class="ni">_estimate_mi</span><span class="nt">(X, y, discrete_features, discrete_target, n_neighbors, copy, random_state)</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span><span class="sd">            Data Sets&quot;. PLoS ONE 9(2), 2014.</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">256</span>     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">check_X_y</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">,</span> <span class="n">y_numeric</span><span class="o">=</span><span class="ow">not</span> <span class="n">discrete_target</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span> 
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">check_X_y</span><span class="nt">(X, y, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, multi_output, ensure_min_samples, ensure_min_features, y_numeric, estimator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">974</span>         <span class="n">ensure_min_samples</span><span class="o">=</span><span class="n">ensure_min_samples</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span>         <span class="n">ensure_min_features</span><span class="o">=</span><span class="n">ensure_min_features</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">976</span>         <span class="n">estimator</span><span class="o">=</span><span class="n">estimator</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">977</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span> 
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span>                     <span class="n">array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s2">&quot;unsafe&quot;</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">745</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">746</span>                     <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span>             <span class="k">except</span> <span class="n">ComplexWarning</span> <span class="k">as</span> <span class="n">complex_warning</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">748</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/pandas/core/generic.py</span> in <span class="ni">__array__</span><span class="nt">(self, dtype)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1991</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1992</span>     <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">NpDtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1993</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1994</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1995</span>     <span class="k">def</span> <span class="nf">__array_wrap__</span><span class="p">(</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;netral&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="VSM.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">&lt;no title&gt;</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Faridz Nur F S N<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
