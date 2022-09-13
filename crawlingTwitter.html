@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>CRAWLING DATA TWITTER MENGGUNAKAN TWINT &#8212; Web Mining</title>
+    <title>CRAWLING DATA TWITTER MENGGUNAKAN TWINT &#8212; My sample book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="VSM.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -96,7 +95,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Web Mining</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -112,10 +111,15 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   CRAWLING DATA TWITTER MENGGUNAKAN TWINT
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
   </a>
  </li>
 </ul>
@@ -1665,51 +1669,6 @@ Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">24</span><span class="o">-</span><span class="mi">9</span><span class="n">a226bb80a2b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">mutual_info</span><span class="o">=</span><span class="n">mutual_info_classif</span><span class="p">(</span><span class="n">df_x</span><span class="p">,</span><span class="n">df_y</span><span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.7/dist-packages/sklearn/feature_selection/_mutual_info.py</span> in <span class="ni">mutual_info_classif</span><span class="nt">(X, y, discrete_features, n_neighbors, copy, random_state)</span>
-<span class="g g-Whitespace">    </span><span class="mi">462</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="sd">     check_classification_targets(y)</span>
-<span class="ne">--&gt; </span><span class="mi">464</span><span class="sd">     return _estimate_mi(X, y, discrete_features, True, n_neighbors, copy, random_state)</span>
-
-<span class="nn">/usr/local/lib/python3.7/dist-packages/sklearn/feature_selection/_mutual_info.py</span> in <span class="ni">_estimate_mi</span><span class="nt">(X, y, discrete_features, discrete_target, n_neighbors, copy, random_state)</span>
-<span class="g g-Whitespace">    </span><span class="mi">254</span><span class="sd">            Data Sets&quot;. PLoS ONE 9(2), 2014.</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">256</span>     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">check_X_y</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">,</span> <span class="n">y_numeric</span><span class="o">=</span><span class="ow">not</span> <span class="n">discrete_target</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-<span class="g g-Whitespace">    </span><span class="mi">258</span> 
-
-<span class="nn">/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">check_X_y</span><span class="nt">(X, y, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, multi_output, ensure_min_samples, ensure_min_features, y_numeric, estimator)</span>
-<span class="g g-Whitespace">    </span><span class="mi">974</span>         <span class="n">ensure_min_samples</span><span class="o">=</span><span class="n">ensure_min_samples</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">975</span>         <span class="n">ensure_min_features</span><span class="o">=</span><span class="n">ensure_min_features</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">976</span>         <span class="n">estimator</span><span class="o">=</span><span class="n">estimator</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">977</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span> 
-
-<span class="nn">/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator)</span>
-<span class="g g-Whitespace">    </span><span class="mi">744</span>                     <span class="n">array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s2">&quot;unsafe&quot;</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">745</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">746</span>                     <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">747</span>             <span class="k">except</span> <span class="n">ComplexWarning</span> <span class="k">as</span> <span class="n">complex_warning</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">748</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-
-<span class="nn">/usr/local/lib/python3.7/dist-packages/pandas/core/generic.py</span> in <span class="ni">__array__</span><span class="nt">(self, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1991</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1992</span>     <span class="k">def</span> <span class="nf">__array__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">NpDtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1993</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1994</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1995</span>     <span class="k">def</span> <span class="nf">__array_wrap__</span><span class="p">(</span>
-
-<span class="ne">ValueError</span>: could not convert string to float: &#39;netral&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -1741,13 +1700,6 @@ Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="VSM.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">&lt;no title&gt;</p>
-        </div>
-    </a>
 </div>
             </footer>
         </div>
@@ -1755,7 +1707,7 @@ Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Faridz Nur F S N<br/>
+    By The Jupyter Book Community<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
