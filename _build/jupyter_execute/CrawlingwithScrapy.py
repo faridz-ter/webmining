@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# # Crawling menggunakan Scrapy
+
 # In[1]:
 
 

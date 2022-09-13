@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# # Vector Space Model
+
 # In[1]:
 
 
@@ -8,13 +10,13 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 
-# In[2]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining/content')
 
 
-# In[3]:
+# In[ ]:
 
 
 try : 
@@ -24,7 +26,7 @@ except :
   import scrapy
 
 
-# In[4]:
+# In[ ]:
 
 
 import pandas as pd
@@ -49,13 +51,13 @@ class LinkSpider(scrapy.Spider):
                 }
 
 
-# In[8]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining/webmining')
 
 
-# In[13]:
+# In[ ]:
 
 
 linkHasilCrawl = pd.read_csv('hasilCrawlLink.csv')
