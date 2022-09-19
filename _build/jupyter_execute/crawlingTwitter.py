@@ -16,7 +16,7 @@ drive.mount('/content/drive')
 
 # Masuk ke direktori projek Web Mining
 
-# In[7]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining')
@@ -26,7 +26,7 @@ get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining')
 
 # Langkah awal clone terlebih twint dari GitHub TwintProject, lalu kita masuk kedalam folder yang sudah kita clone tadi. Tinggal jalankan script dibawah untuk memasang Twint ke projek kita
 
-# In[3]:
+# In[ ]:
 
 
 get_ipython().system('git clone --depth=1 https://github.com/twintproject/twint.git')
@@ -36,7 +36,7 @@ get_ipython().system('pip3 install . -r requirements.txt')
 
 # Pasang aiohttp berguna menyediakan Web-server dengan middlewares dan plugable routing 
 
-# In[4]:
+# In[ ]:
 
 
 get_ipython().system('pip install aiohttp==3.7.0')
@@ -44,7 +44,7 @@ get_ipython().system('pip install aiohttp==3.7.0')
 
 # Pasang nest-asyncio untuk runtime serentak dalam noteboook
 
-# In[5]:
+# In[ ]:
 
 
 get_ipython().system('pip install nest-asyncio')
@@ -52,7 +52,7 @@ get_ipython().system('pip install nest-asyncio')
 
 # Import nest-asyncio dan juga twint agar bisa melakukan crawling data di twitter
 
-# In[6]:
+# In[ ]:
 
 
 import nest_asyncio
@@ -67,7 +67,7 @@ import twint
 
 # Data yang kita ambil ialah pemberitaan terbaru mengenai data dari negara Indonesia yang sedang diretas oleh orang luar negeri berinisial "Bjorka". Kata kunci yang digunakan 'databocor' pada **c.search**, menggunakan Pandas pada **c.Pandas**, menggunakan limitasi data sebanyak 80 data pada **c.Limit**, dengan menggunakan custom data yang dimasukkan ke csx dengan label Tweet dan data yang diambil tweet-nya saja. Output atau data akan dimasukkan ke dalam file **csv**.
 
-# In[20]:
+# In[ ]:
 
 
 c = twint.Config()
@@ -82,13 +82,13 @@ twint.run.Search(c)
 
 # Membuka file **csv** yang sudah dilabeli secara manual dengan 3 kelas yaitu positif, netral, dan negatif. 
 
-# In[9]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining/webmining')
 
 
-# In[10]:
+# In[ ]:
 
 
 import pandas as pd
@@ -96,7 +96,9 @@ data = pd.read_csv('dataBocor.csv')
 data
 
 
-# ## Matrix Term Frequent
+# ## Preprocessing
+
+# Preprocessing adalah proses yang mengubah data mentah ke dalam bentuk yang lebih mudah dipahami. Proses ini penting dilakukan karena data mentah sering kali tidak memiliki format yang teratur. Selain itu, data mining juga tidak dapat memproses data mentah, sehingga proses ini sangat penting dilakukan untuk mempermudah proses berikutnya, yakni analisis data.
 
 # 
 # >**NLTK** adalah singkatan dari Natural Language Tool Kit, yaitu sebuah library yang digunakan untuk membantu kita dalam bekerja dengan teks. Library ini memudahkan kita untuk memproses teks seperti melakukan classification, tokenization, stemming, tagging, parsing, dan semantic reasoning.
@@ -105,7 +107,7 @@ data
 # 
 # 
 
-# In[3]:
+# In[14]:
 
 
 get_ipython().system('pip install nltk')
@@ -118,7 +120,7 @@ get_ipython().system('pip install Sastrawi')
 # 
 # >**NumPy** merupakan singkatan dari Numerical Python. NumPy merupakan salah satu library Python yang berfungsi untuk proses komputasi numerik. NumPy memiliki kemampuan untuk membuat objek N-dimensi array. Array merupakan sekumpulan variabel yang memiliki tipe data yang sama. Kelebihan dari NumPy Array adalah dapat memudahkan operasi komputasi pada data, cocok untuk melakukan akses secara acak, dan elemen array merupakan sebuah nilai yang independen sehingga penyimpanannya dianggap sangat efisien.
 
-# In[4]:
+# In[15]:
 
 
 import pandas as pd
@@ -133,7 +135,7 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 # **Function Remove Stopwords** berguna menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM. Kita meenggunakan kumpulan stopword dari github yang berjumlah sekitar 700 kata. 
 
-# In[12]:
+# In[ ]:
 
 
 def remove_stopwords(text):
@@ -149,7 +151,7 @@ def remove_stopwords(text):
 
 # **Stemming** merupakan proses mengubah kata dalam bahasa Indonesia ke akar katanya atau tidak ada kata yang berimbuhan pada awal maupun akhir kata serta tidak ada kata yang berulangan misalkan 'anak perempuan berjalan - jalan' menjadi 'anak perempuan jalan'
 
-# In[13]:
+# In[ ]:
 
 
 def stemming(text):
@@ -164,105 +166,225 @@ def stemming(text):
 # **Preprocessing** terdiri dari beberapa tahapan yang terdiri dari :
 # 
 # 
-# > * Mengubah Text menjadi huruf kecil
-# * Menghilangkan Url didalam Text
-# * Mengubah/menghilangkan tanda (misalkan garis miring menjadi spasi)
+# * Mengubah Text menjadi huruf kecil
+# * Menghilangkan non ASCII seperti emotikon, penulisan Cina, dan sebagainya.
+# * Menghilangkan mention, Url didalam Text, dan hashtag.
+# * Mengubah/menghilangkan tanda baca (misalkan garis miring menjadi spasi)
 # * Melakukan tokenization kata dan Penghapusan Kata yang tidak digunakan
 # * Memfilter kata dari tanda baca
 # * Mengubah kata dalam bahasa Indonesia ke akar katanya
 # * Menghapus String kosong
 
-# In[14]:
+# In[ ]:
 
 
 def preprocessing(text):
     #case folding
     text = text.lower()
-    #remove urls
-    text = re.sub('http\S+', '', text)
+
+    #remove non ASCII (emoticon, chinese word, .etc)
+    text = text.replace('\\t'," ").replace('\\n'," ").replace('\\u'," ").replace('\\'," ").replace('\\f'," ").replace('\\r'," ")
+
+    # remove non ASCII (emoticon, chinese word, .etc)
+    text = text.encode('ascii', 'replace').decode('ascii')
+
+    # remove mention, link, hashtag
+    text = ' '.join(re.sub("([@#][A-Za-z0-9]+)|(\w+:\/\/\S+)"," ", text).split())
+
     #replace weird characters
     text = text.replace('“', '"')
     text = text.replace('”', '"')
     text = text.replace('-', ' ')
+
     #tokenization and remove stopwords
     text = remove_stopwords(text)
+
     #remove punctuation    
-    text = [''.join(c for c in s if c not in string.punctuation) for s in text]    
+    text = [''.join(c for c in s if c not in string.punctuation) for s in text]  
+
     #stemming
     text = stemming(text)
+
     #remove empty string
     text = list(filter(None, text))
     return text
 
 
-# Membuat matriks term frekuensi yang sudah dilakukan **Preprocessing** pada data crawling. Data yang kosong diisi dengan angka 0.
+# Menyimpan data yang sudah dilakukan Preprocessing ke dalam file csv baru dan tersimpan di folder yang sama dengan file ipynb.
 
-# In[15]:
-
-
-tf = pd.DataFrame()
-for i,v in enumerate(data['tweet']):
-    cols = ["Doc " + str(i+1)]    
-    doc = pd.DataFrame.from_dict(nltk.FreqDist(preprocessing(v)), orient='index',columns=cols)
-    tf = pd.concat([tf, doc], axis=1, sort=False)
+# In[ ]:
 
 
-# In[17]:
-
-
-tf.index.name = 'Term'
-tf = pd.concat([tf], axis=1, sort=False)
-tf = tf.fillna(0)
-tf
-
-
-# ## Mutual Information
-
-# In[16]:
-
-
-get_ipython().system('pip install -U scikit-learn')
-
-
-# In[18]:
-
-
-train = tf.iloc[:,:len(data)]
-test = tf.iloc[:,len(data):]
-
-
-# In[19]:
-
-
-cols = train.columns
-df = pd.DataFrame(train[cols].gt(0).sum(axis=1), columns=['Document Frequency'])
-idf = np.log10(len(cols)/df)
-idf.columns = ['Inverse Document Frequency']
-idf = pd.concat([df, idf], axis=1)
-
-
-# In[20]:
-
-
-idf
-
-
-# In[21]:
-
-
-df_x = data.iloc[:, 1:]
-df_y = data.iloc[:, 0]
+data['tweet'].apply(preprocessing).to_csv('hasilPreprocessing.csv')
 
 
 # In[ ]:
 
 
+dataPre = pd.read_csv('hasilPreprocessing.csv')
+dataPre
+
+
+# ## Vector Space Model
+
+# Vector Space Model (VSM) merupakan sebuah pendekatan natural yang berbasis pada vektor dari setiap kata dalam suatu dimensi spasial. Dokumen dipandang sebagai sebuah vektor yang memiliki magnitude (jarak) dan direction (arah). Pada VSM, sebuah kata direpresentasikan dengan sebuah dimensi dari ruang vektor. Relevansi sebuah dokumen ke sebuah kueri didasarkan pada similaritas diantara vektor dokumen dan vektor kueri.
+
+# Import modul untuk membuat Vector Space Model dari library Sklearn, serta import data hasil preprocessing 
+
+# In[3]:
+
+
+from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
+dataTextPre = pd.read_csv('/content/drive/MyDrive/Web Mining/webmining/hasilPreprocessing.csv')
+vectorizer = CountVectorizer(min_df=1)
+bag = vectorizer.fit_transform(dataTextPre['tweet'])
+
+
+# Membuat matriks menjadi matriks array dan dilakukan shape pada matriks yang sudah dibuat 
+
+# In[4]:
+
+
+matrik_vsm = bag.toarray()
+matrik_vsm.shape
+
+
+# In[5]:
+
+
+matrik_vsm[0]
+
+
+# Mengambil semua kata yang sudah di tokenizing menjadi kolom - kolom atau fitur pada matriks VSM
+
+# In[6]:
+
+
+a = vectorizer.get_feature_names()
+
+
+# Menampilkan Matriks VSM yang sduah dihitung frekuensi kemunculan term pada setiap tweet atau dokumen.
+
+# In[7]:
+
+
+dataTF = pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
+dataTF
+
+
+# Menambahkan kolom label pada setiap tweet dan mengisi setiap baris pada kolom Label dengan data yang telah diisi manual.
+
+# In[8]:
+
+
+label = pd.read_csv('/content/drive/MyDrive/Web Mining/webmining/dataBocor.csv')
+dataVSM = pd.concat([dataTF.reset_index(), label["label"]], axis=1)
+dataVSM
+
+
+# Membuat Kolom Label menjadi kolom unique
+
+# In[9]:
+
+
+dataVSM['label'].unique()
+
+
+# In[10]:
+
+
+dataVSM.info()
+
+
+# ## Mutual Information
+
+# Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.
+
+# In[ ]:
+
+
+get_ipython().system('pip install -U scikit-learn')
+
+
+# ### Menghitung Information gain 
+
+# Information Gain merupakan teknik seleksi fitur yang memakai metode scoring untuk nominal ataupun pembobotan atribut kontinue yang didiskretkan menggunakan maksimal entropy. Suatu entropy digunakan untuk mendefinisikan nilai Information Gain. Entropy menggambarkan banyaknya informasi yang dibutuhkan untuk mengkodekan suatu kelas. Information Gain (IG) dari suatu term diukur dengan menghitung jumlah bit informasi yang diambil dari prediksi kategori dengan ada atau tidaknya term dalam suatu dokumen.
+
+# $$
+# Entropy \ (S) \equiv \sum ^{c}_{i}P_{i}\log _{2}p_{i}
+# $$
+# 
+# c  : jumlah nilai yang ada pada atribut target (jumlah kelas klasifikasi).
+# 
+# Pi : porsi sampel untuk kelas i.
+
+# 
+# $$
+# Gain \ (S,A) \equiv Entropy(S) - \sum _{\nu \varepsilon \ values } \dfrac{\left| S_{i}\right| }{\left| S\right|} Entropy(S_{v})
+# $$
+# 
+# A : atribut
+# 
+# V : menyatakan suatu nilai yang mungkin untuk atribut A
+# 
+# Values (A) : himpunan nilai-nilai yang mungkin untuk atribut A
+# 
+# |Sv| : jumlah Sampel untuk nilai v
+# 
+# |S| : jumlah seluruh sample data Entropy 
+# 
+# (Sv) : entropy untuk sampel sampel yang memiliki nilai v
+# 
+
+# In[12]:
+
+
 from sklearn.model_selection import train_test_split
-X_train,X_test,Y_train,Y_test=train_test_split(df.drop(labels=['Document Frequency'],axis=1),
-                                               df['Document Frequency'],
-                                               test_size=0.3,
-                                               random_state=0)
+X_train,X_test,y_train,y_test=train_test_split(dataVSM.drop(labels=['label'], axis=1),
+    dataVSM['label'],
+    test_size=0.3,
+    random_state=0)
+
+
+# In[ ]:
+
+
+X_train
+
+
+# Menghitung Information gain menggunakan modul yang sudah ada di sklearn dengan mengambil data yang sudah ditrain split.
+
+# In[13]:
+
 
 from sklearn.feature_selection import mutual_info_classif
-mutual_info=mutual_info_classif(df_x,df_y)
+mutual_info = mutual_info_classif(X_train, y_train)
+mutual_info
+
+
+# Meranking setiap term mulai dari information gain terbesar sampai yang terkecil.
+
+# In[ ]:
+
+
+mutual_info = pd.Series(mutual_info)
+mutual_info.index = X_train.columns
+mutual_info.sort_values(ascending=False)
+
+
+# Membuat plot berbentuk grafik batang atau bar dari data perankingan term.
+
+# In[ ]:
+
+
+mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
+
+
+# In[ ]:
+
+
+from sklearn.feature_selection import SelectKBest
+sel_five_cols = SelectKBest(mutual_info_classif, k=100)
+sel_five_cols.fit(X_train, y_train)
+X_train.columns[sel_five_cols.get_support()]
 
