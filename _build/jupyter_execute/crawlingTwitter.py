@@ -107,7 +107,7 @@ data
 # 
 # 
 
-# In[14]:
+# In[9]:
 
 
 get_ipython().system('pip install nltk')
@@ -120,7 +120,7 @@ get_ipython().system('pip install Sastrawi')
 # 
 # >**NumPy** merupakan singkatan dari Numerical Python. NumPy merupakan salah satu library Python yang berfungsi untuk proses komputasi numerik. NumPy memiliki kemampuan untuk membuat objek N-dimensi array. Array merupakan sekumpulan variabel yang memiliki tipe data yang sama. Kelebihan dari NumPy Array adalah dapat memudahkan operasi komputasi pada data, cocok untuk melakukan akses secara acak, dan elemen array merupakan sebuah nilai yang independen sehingga penyimpanannya dianggap sangat efisien.
 
-# In[15]:
+# In[10]:
 
 
 import pandas as pd
@@ -231,7 +231,7 @@ dataPre
 
 # Import modul untuk membuat Vector Space Model dari library Sklearn, serta import data hasil preprocessing 
 
-# In[3]:
+# In[12]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
@@ -242,14 +242,14 @@ bag = vectorizer.fit_transform(dataTextPre['tweet'])
 
 # Membuat matriks menjadi matriks array dan dilakukan shape pada matriks yang sudah dibuat 
 
-# In[4]:
+# In[13]:
 
 
 matrik_vsm = bag.toarray()
 matrik_vsm.shape
 
 
-# In[5]:
+# In[14]:
 
 
 matrik_vsm[0]
@@ -257,7 +257,7 @@ matrik_vsm[0]
 
 # Mengambil semua kata yang sudah di tokenizing menjadi kolom - kolom atau fitur pada matriks VSM
 
-# In[6]:
+# In[15]:
 
 
 a = vectorizer.get_feature_names()
@@ -265,7 +265,7 @@ a = vectorizer.get_feature_names()
 
 # Menampilkan Matriks VSM yang sduah dihitung frekuensi kemunculan term pada setiap tweet atau dokumen.
 
-# In[7]:
+# In[16]:
 
 
 dataTF = pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
@@ -274,7 +274,7 @@ dataTF
 
 # Menambahkan kolom label pada setiap tweet dan mengisi setiap baris pada kolom Label dengan data yang telah diisi manual.
 
-# In[8]:
+# In[17]:
 
 
 label = pd.read_csv('/content/drive/MyDrive/Web Mining/webmining/dataBocor.csv')
@@ -284,13 +284,13 @@ dataVSM
 
 # Membuat Kolom Label menjadi kolom unique
 
-# In[9]:
+# In[18]:
 
 
 dataVSM['label'].unique()
 
 
-# In[10]:
+# In[19]:
 
 
 dataVSM.info()
@@ -300,7 +300,7 @@ dataVSM.info()
 
 # Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.
 
-# In[ ]:
+# In[20]:
 
 
 get_ipython().system('pip install -U scikit-learn')
@@ -336,7 +336,7 @@ get_ipython().system('pip install -U scikit-learn')
 # (Sv) : entropy untuk sampel sampel yang memiliki nilai v
 # 
 
-# In[12]:
+# In[21]:
 
 
 from sklearn.model_selection import train_test_split
@@ -346,7 +346,7 @@ X_train,X_test,y_train,y_test=train_test_split(dataVSM.drop(labels=['label'], ax
     random_state=0)
 
 
-# In[ ]:
+# In[22]:
 
 
 X_train
@@ -354,7 +354,7 @@ X_train
 
 # Menghitung Information gain menggunakan modul yang sudah ada di sklearn dengan mengambil data yang sudah ditrain split.
 
-# In[13]:
+# In[23]:
 
 
 from sklearn.feature_selection import mutual_info_classif
@@ -364,7 +364,7 @@ mutual_info
 
 # Meranking setiap term mulai dari information gain terbesar sampai yang terkecil.
 
-# In[ ]:
+# In[24]:
 
 
 mutual_info = pd.Series(mutual_info)
@@ -374,17 +374,108 @@ mutual_info.sort_values(ascending=False)
 
 # Membuat plot berbentuk grafik batang atau bar dari data perankingan term.
 
-# In[ ]:
+# In[25]:
 
 
 mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
 
 
-# In[ ]:
+# In[26]:
 
 
 from sklearn.feature_selection import SelectKBest
 sel_five_cols = SelectKBest(mutual_info_classif, k=100)
 sel_five_cols.fit(X_train, y_train)
 X_train.columns[sel_five_cols.get_support()]
+
+
+# In[27]:
+
+
+X_train=X_train.values
+y_train=y_train.values
+X_test=X_test.values
+y_test=y_test.values
+
+
+# ## Klasifikasi
+
+# ### KNN
+# Algoritma K-Nearest Neighbor (KNN) adalah sebuah metode klasifikasi terhadap sekumpulan data berdasarkan pembelajaran data yang sudah terklasifikasikan sebelumya. Termasuk dalam supervised learning, dimana hasil query instance yang baru diklasifikasikan berdasarkan mayoritas kedekatan jarak dari kategori yang ada dalam K-NN. Algoritma ini bertujuan untuk mengklasifikasikan obyek baru berdasarkan atribut dan sample-sample dari training data.
+
+# Import algoritma KNN dari sklearn, lalu aktifkan fungsi klasifikasi KNN serta atur koefisien N, pada dataset ini N sudah diatur dengan 2 sebab akurasi terbaik terdapat pada angka N ke 2.
+
+# In[28]:
+
+
+from sklearn.neighbors import KNeighborsClassifier
+
+neigh = KNeighborsClassifier(n_neighbors=2)
+neigh.fit(X_train, y_train)
+Y_pred = neigh.predict(X_test) 
+Y_pred
+
+
+# Menampilkan nilai akurasi dari algoritma KNN
+
+# In[31]:
+
+
+from sklearn.metrics import make_scorer, accuracy_score,precision_score
+testing = neigh.predict(X_test) 
+accuracy_neigh=round(accuracy_score(y_test,testing)* 100, 2)
+accuracy_neigh
+
+
+# ### Confusion Matrix
+# Confusion Matrix adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih.  Confusion Matrix adalah tabel dengan 4 kombinasi berbeda dari nilai prediksi dan nilai aktual. 
+# 
+
+# In[32]:
+
+
+import matplotlib.pyplot as plt
+from sklearn import metrics
+
+
+# Import pyplot untuk membuat plot matriks menjadi tidak eror jika ditampilkan, lalu import metrics dari sklearn untuk membuat matriksnya.
+
+# In[37]:
+
+
+conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=Y_pred)
+cm_display = metrics.ConfusionMatrixDisplay(confusion_matrix = conf_matrix, display_labels = ['negatif', 'netral','positif'])
+cm_display.plot()
+plt.show()
+
+
+# ## Clustering
+
+# ### K MEANS
+# Algoritma k-means merupakan algoritma yang membutuhkan parameter input sebanyak k dan membagi sekumpulan n objek kedalam k cluster sehingga tingkat kemiripan antar anggota dalam satu cluster tinggi sedangkan tingkat kemiripan dengan anggota pada cluster lain sangat rendah. Kemiripan anggota terhadap cluster diukur dengan kedekatan objek terhadap nilai mean pada cluster atau dapat disebut sebagai centroid cluster.
+
+# Rumus menghitung jarak terdekat digunakan formula *Ecludean* sebagai berikut :
+# 
+# $$
+# d(i,j) = \sqrt{\sum ^{m}_{j=1}\left( x_{ij}-c_{kj}\right) ^{2}}
+# $$
+
+# In[38]:
+
+
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA, TruncatedSVD
+
+"""Train the Kmeans with the best n of clusters"""
+modelKm = KMeans(n_clusters=3, random_state=12)
+modelKm.fit(dataTF.values)
+prediksi = modelKm.predict(dataTF.values)
+
+"""Dimensionality reduction used to plot in 2d representation"""
+pc=TruncatedSVD(n_components=2)
+X_new=pc.fit_transform(dataTF.values)
+centroids=pc.transform(modelKm.cluster_centers_)
+print(centroids)
+plt.scatter(X_new[:,0],X_new[:,1],c=prediksi, cmap='viridis')
+plt.scatter(centroids[:,0] , centroids[:,1] , s = 50, color = 'red')
 

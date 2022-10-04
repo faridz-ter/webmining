@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>CRAWLING DATA TWITTER MENGGUNAKAN TWINT &#8212; Web Mining</title>
+    <title>CRAWLING DATA TWITTER MENGGUNAKAN TWINT &#8212; My sample book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,7 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Vector Space Model" href="VSM.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,7 +97,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Web Mining</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -114,20 +113,15 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="CrawlingwithScrapy.html">
-   Crawling menggunakan Scrapy
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="VSM.html">
-   Vector Space Model
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   CRAWLING DATA TWITTER MENGGUNAKAN TWINT
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
   </a>
  </li>
 </ul>
@@ -189,7 +183,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/faridz-ter/webmining/master?urlpath=tree/docs/crawlingTwitter.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/crawlingTwitter.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -202,24 +196,6 @@ title="Launch on Binder"
     <img src="_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://colab.research.google.com/drive/1L_AdOVmBgjTh0cCuMmGDbzJo4N8LDPsQ#scrollTo=xjHz31vpkfS2/github/faridz-ter/webmining/blob/master/docs/crawlingTwitter.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
-  </span>
-<span class="headerbtn__text-container">Colab</span>
 </a>
 
       </li>
@@ -250,7 +226,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/faridz-ter/webmining"
+        <a href="https://github.com/executablebooks/jupyter-book"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -267,7 +243,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/faridz-ter/webmining/issues/new?title=Issue%20on%20page%20%2FcrawlingTwitter.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FcrawlingTwitter.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -391,6 +367,35 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#klasifikasi">
+   Klasifikasi
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knn">
+     KNN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confusion-matrix">
+     Confusion Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering">
+   Clustering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-means">
+     K MEANS
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -443,6 +448,35 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#menghitung-information-gain">
      Menghitung Information gain
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#klasifikasi">
+   Klasifikasi
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knn">
+     KNN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confusion-matrix">
+     Confusion Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering">
+   Clustering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-means">
+     K MEANS
     </a>
    </li>
   </ul>
@@ -941,14 +975,14 @@ Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.7/dist-pac
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: nltk in /usr/local/lib/python3.7/dist-packages (3.7)
-Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
 Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.7/dist-packages (from nltk) (2022.6.2)
 Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from nltk) (7.1.2)
 Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from nltk) (1.1.0)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from nltk) (4.64.1)
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting Sastrawi
   Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
-     |████████████████████████████████| 209 kB 25.2 MB/s 
+     |████████████████████████████████| 209 kB 5.2 MB/s 
 ?25hInstalling collected packages: Sastrawi
 Successfully installed Sastrawi-1.0.1
 </pre></div>
@@ -1076,7 +1110,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f080ebbb-8d40-4583-abf0-a447c8089d32">
+  <div id="df-3787dda6-cc71-4c5e-91db-d4340f5c4358">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1160,7 +1194,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>80 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-f080ebbb-8d40-4583-abf0-a447c8089d32')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-3787dda6-cc71-4c5e-91db-d4340f5c4358')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1211,12 +1245,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-f080ebbb-8d40-4583-abf0-a447c8089d32 button.colab-df-convert');
+          document.querySelector('#df-3787dda6-cc71-4c5e-91db-d4340f5c4358 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-f080ebbb-8d40-4583-abf0-a447c8089d32');
+          const element = document.querySelector('#df-3787dda6-cc71-4c5e-91db-d4340f5c4358');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1325,7 +1359,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-46672c84-e31a-476a-a427-2b265f53384c">
+  <div id="df-d6a3beef-cc48-4c7e-88b8-b4a70ebbb65f">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1637,7 +1671,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>80 rows × 507 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-46672c84-e31a-476a-a427-2b265f53384c')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-d6a3beef-cc48-4c7e-88b8-b4a70ebbb65f')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1688,12 +1722,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-46672c84-e31a-476a-a427-2b265f53384c button.colab-df-convert');
+          document.querySelector('#df-d6a3beef-cc48-4c7e-88b8-b4a70ebbb65f button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-46672c84-e31a-476a-a427-2b265f53384c');
+          const element = document.querySelector('#df-d6a3beef-cc48-4c7e-88b8-b4a70ebbb65f');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1725,7 +1759,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-05b065d3-d267-4275-ab9f-1ffd830e0078">
+  <div id="df-6a8de06e-4947-4059-868b-692c38444a9a">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -2037,7 +2071,7 @@ Successfully installed Sastrawi-1.0.1
 </table>
 <p>80 rows × 509 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-05b065d3-d267-4275-ab9f-1ffd830e0078')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-6a8de06e-4947-4059-868b-692c38444a9a')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -2088,12 +2122,12 @@ Successfully installed Sastrawi-1.0.1
 
       <script>
         const buttonEl =
-          document.querySelector('#df-05b065d3-d267-4275-ab9f-1ffd830e0078 button.colab-df-convert');
+          document.querySelector('#df-6a8de06e-4947-4059-868b-692c38444a9a button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-05b065d3-d267-4275-ab9f-1ffd830e0078');
+          const element = document.querySelector('#df-6a8de06e-4947-4059-868b-692c38444a9a');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -2156,10 +2190,10 @@ memory usage: 318.2+ KB
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: scikit-learn in /usr/local/lib/python3.7/dist-packages (1.0.2)
-Requirement already satisfied: scipy&gt;=1.1.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.7.3)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
 Requirement already satisfied: numpy&gt;=1.14.6 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.21.6)
 Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.1.0)
+Requirement already satisfied: scipy&gt;=1.1.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (1.7.3)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-learn) (3.1.0)
 </pre></div>
 </div>
 </div>
@@ -2202,7 +2236,7 @@ Gain \ (S,A) \equiv Entropy(S) - \sum _{\nu \varepsilon \ values } \dfrac{\left|
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-2139c72b-d58d-4d34-9a5f-96bdf0c1202d">
+  <div id="df-0cbec4c1-2c72-4add-b677-2d13a30aa6b2">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -3594,7 +3628,7 @@ Gain \ (S,A) \equiv Entropy(S) - \sum _{\nu \varepsilon \ values } \dfrac{\left|
 </table>
 <p>56 rows × 508 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-2139c72b-d58d-4d34-9a5f-96bdf0c1202d')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0cbec4c1-2c72-4add-b677-2d13a30aa6b2')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -3645,12 +3679,12 @@ Gain \ (S,A) \equiv Entropy(S) - \sum _{\nu \varepsilon \ values } \dfrac{\left|
 
       <script>
         const buttonEl =
-          document.querySelector('#df-2139c72b-d58d-4d34-9a5f-96bdf0c1202d button.colab-df-convert');
+          document.querySelector('#df-0cbec4c1-2c72-4add-b677-2d13a30aa6b2 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-2139c72b-d58d-4d34-9a5f-96bdf0c1202d');
+          const element = document.querySelector('#df-0cbec4c1-2c72-4add-b677-2d13a30aa6b2');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -3681,108 +3715,108 @@ Gain \ (S,A) \equiv Entropy(S) - \sum _{\nu \varepsilon \ values } \dfrac{\left|
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.11846616, 0.        , 0.        , 0.        , 0.        ,
-       0.18068105, 0.14046133, 0.02698615, 0.00736349, 0.        ,
-       0.        , 0.11091032, 0.07432542, 0.        , 0.24265912,
-       0.18817141, 0.        , 0.        , 0.03147217, 0.        ,
-       0.02788207, 0.        , 0.        , 0.01985427, 0.00756581,
-       0.11999917, 0.16004566, 0.10961849, 0.        , 0.04328037,
-       0.        , 0.09141418, 0.18854727, 0.        , 0.        ,
-       0.09077068, 0.1225188 , 0.        , 0.        , 0.08372827,
-       0.01184398, 0.01865915, 0.08926002, 0.        , 0.        ,
-       0.        , 0.05287171, 0.        , 0.        , 0.02651473,
-       0.08537908, 0.01579283, 0.13653261, 0.06500655, 0.        ,
-       0.06641084, 0.10084485, 0.00510959, 0.        , 0.        ,
-       0.02549541, 0.01513521, 0.14698309, 0.        , 0.        ,
-       0.        , 0.04296742, 0.16595771, 0.        , 0.03080748,
-       0.        , 0.        , 0.12688727, 0.        , 0.04232534,
-       0.14895976, 0.        , 0.01418733, 0.        , 0.02758964,
-       0.05848477, 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.0286564 , 0.        , 0.06796542,
-       0.06150381, 0.00082076, 0.        , 0.02595678, 0.0522985 ,
-       0.        , 0.04312078, 0.0540525 , 0.0854173 , 0.00077154,
-       0.        , 0.02571454, 0.03107638, 0.        , 0.        ,
-       0.        , 0.15538046, 0.        , 0.        , 0.05330657,
-       0.        , 0.01566231, 0.08079864, 0.03933079, 0.        ,
-       0.        , 0.        , 0.020855  , 0.        , 0.        ,
-       0.08858271, 0.        , 0.03824224, 0.        , 0.03450668,
-       0.08003119, 0.05226771, 0.        , 0.        , 0.11326428,
-       0.10906925, 0.        , 0.00569229, 0.        , 0.11007244,
-       0.        , 0.        , 0.        , 0.        , 0.08361057,
-       0.        , 0.10853242, 0.        , 0.        , 0.07084261,
-       0.03961668, 0.        , 0.0637231 , 0.07155389, 0.10843084,
-       0.07407263, 0.        , 0.        , 0.        , 0.        ,
-       0.05235045, 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.10792875,
-       0.        , 0.        , 0.        , 0.        , 0.00627056,
-       0.        , 0.        , 0.04719017, 0.        , 0.03127388,
-       0.        , 0.07680519, 0.        , 0.03332088, 0.09418345,
-       0.01987173, 0.08239196, 0.01646407, 0.00259544, 0.09215145,
-       0.        , 0.05881246, 0.01794269, 0.0567699 , 0.        ,
-       0.        , 0.        , 0.03991905, 0.        , 0.        ,
-       0.        , 0.05058388, 0.00248091, 0.07086237, 0.        ,
-       0.02008976, 0.00194419, 0.0476843 , 0.0633252 , 0.        ,
-       0.06016252, 0.        , 0.        , 0.06759359, 0.08334725,
-       0.09243899, 0.03526906, 0.01336702, 0.00723876, 0.        ,
-       0.        , 0.18728702, 0.1280408 , 0.05950666, 0.02108085,
-       0.        , 0.        , 0.083418  , 0.0237041 , 0.        ,
-       0.        , 0.04091113, 0.        , 0.09512842, 0.        ,
-       0.        , 0.        , 0.        , 0.13587556, 0.05709079,
-       0.        , 0.06613402, 0.        , 0.09958318, 0.        ,
-       0.16507825, 0.03869735, 0.        , 0.1246614 , 0.03408348,
-       0.05609591, 0.09120749, 0.        , 0.02495924, 0.        ,
-       0.00599454, 0.03782433, 0.00415153, 0.        , 0.09893014,
-       0.        , 0.        , 0.        , 0.00748691, 0.        ,
-       0.2701527 , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.02877766, 0.03841107, 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.00069939,
-       0.10126379, 0.        , 0.10254259, 0.        , 0.        ,
-       0.        , 0.02667977, 0.02127486, 0.        , 0.01991888,
-       0.        , 0.04097093, 0.05623079, 0.0424255 , 0.        ,
-       0.09867045, 0.        , 0.08124099, 0.0079561 , 0.01333542,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.09925492, 0.        , 0.03415921, 0.05767232, 0.        ,
+       0.        , 0.        , 0.10478688, 0.13948204, 0.06480028,
+       0.        , 0.05306857, 0.        , 0.        , 0.02572368,
+       0.        , 0.00522343, 0.        , 0.        , 0.        ,
+       0.        , 0.01798653, 0.        , 0.        , 0.04765978,
+       0.09534751, 0.00831653, 0.03249308, 0.        , 0.07445186,
+       0.        , 0.05709115, 0.        , 0.05940035, 0.03027748,
+       0.        , 0.0113788 , 0.        , 0.02288195, 0.        ,
+       0.02595669, 0.0043843 , 0.        , 0.05733384, 0.        ,
+       0.13866616, 0.0961746 , 0.        , 0.0634803 , 0.        ,
+       0.        , 0.12009159, 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.0615031 , 0.        , 0.        ,
+       0.02472767, 0.09468484, 0.09473722, 0.14006722, 0.        ,
+       0.        , 0.02557598, 0.09611728, 0.        , 0.02454744,
+       0.        , 0.0041203 , 0.05083569, 0.10027923, 0.        ,
+       0.        , 0.09450963, 0.05380165, 0.03633587, 0.        ,
+       0.03550818, 0.        , 0.07025625, 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.0397123 , 0.10864935,
+       0.        , 0.08844119, 0.02135756, 0.        , 0.        ,
+       0.1082518 , 0.07283869, 0.        , 0.        , 0.01166379,
+       0.        , 0.10006276, 0.        , 0.04593076, 0.00266135,
+       0.12565592, 0.13478667, 0.        , 0.04051697, 0.        ,
+       0.02082889, 0.00468215, 0.09505712, 0.        , 0.00459971,
+       0.04471274, 0.        , 0.13800651, 0.        , 0.        ,
+       0.        , 0.        , 0.06053005, 0.08694682, 0.        ,
+       0.        , 0.        , 0.09977788, 0.00861472, 0.01947006,
        0.        , 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.08304119, 0.        , 0.0740405 ,
-       0.02525364, 0.        , 0.06727175, 0.02438488, 0.        ,
-       0.11157177, 0.0077548 , 0.        , 0.        , 0.11408588,
-       0.06280507, 0.08977594, 0.04433942, 0.05030913, 0.        ,
-       0.        , 0.        , 0.10724002, 0.        , 0.09707135,
-       0.        , 0.        , 0.        , 0.07917948, 0.        ,
-       0.01476839, 0.        , 0.15554935, 0.09433612, 0.09265829,
-       0.        , 0.07828412, 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.0258516 , 0.16926521, 0.01942589,
-       0.        , 0.06067603, 0.        , 0.        , 0.08252223,
-       0.        , 0.218592  , 0.        , 0.15686404, 0.        ,
-       0.        , 0.11969993, 0.07292075, 0.02014645, 0.        ,
-       0.        , 0.        , 0.        , 0.052832  , 0.07053965,
-       0.06464542, 0.        , 0.06263938, 0.04460354, 0.        ,
-       0.09581818, 0.        , 0.08451073, 0.        , 0.        ,
-       0.        , 0.06870768, 0.06245038, 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.        , 0.05488087,
-       0.        , 0.02197706, 0.        , 0.        , 0.00974307,
-       0.        , 0.00320355, 0.24018603, 0.        , 0.11174115,
-       0.        , 0.        , 0.04503553, 0.        , 0.        ,
-       0.00654296, 0.        , 0.        , 0.06037191, 0.20093012,
-       0.        , 0.01664487, 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.0614907 , 0.        ,
-       0.073202  , 0.        , 0.        , 0.        , 0.0033687 ,
-       0.        , 0.        , 0.0966085 , 0.07469643, 0.        ,
-       0.        , 0.00030437, 0.        , 0.04687642, 0.        ,
-       0.05327316, 0.        , 0.16190426, 0.        , 0.        ,
-       0.        , 0.04102294, 0.        , 0.        , 0.06696664,
-       0.0498227 , 0.10584097, 0.07585851, 0.01050149, 0.1258748 ,
-       0.00491232, 0.        , 0.        , 0.        , 0.        ,
-       0.        , 0.        , 0.        , 0.07913623, 0.06783002,
-       0.        , 0.02472237, 0.        , 0.11537176, 0.02828508,
-       0.        , 0.        , 0.        , 0.03190157, 0.        ,
-       0.0346867 , 0.        , 0.10491946, 0.        , 0.        ,
-       0.        , 0.00652987, 0.03822622, 0.04555394, 0.12398169,
-       0.        , 0.        , 0.        , 0.        , 0.12489034,
-       0.        , 0.        , 0.07716254, 0.        , 0.        ,
-       0.        , 0.        , 0.15917345, 0.        , 0.        ,
-       0.        , 0.01033929, 0.        , 0.        , 0.02139807,
-       0.05918358, 0.        , 0.13956317, 0.00367587, 0.0120665 ,
-       0.        , 0.        , 0.00650666, 0.03629991, 0.        ,
-       0.05499275, 0.01261054, 0.        ])
+       0.        , 0.00794928, 0.00619565, 0.04244536, 0.1245169 ,
+       0.01054543, 0.057845  , 0.        , 0.0396557 , 0.        ,
+       0.        , 0.        , 0.        , 0.        , 0.        ,
+       0.05860547, 0.02492504, 0.        , 0.        , 0.14492377,
+       0.01084611, 0.08345219, 0.01514421, 0.09694965, 0.        ,
+       0.04975294, 0.        , 0.02772938, 0.        , 0.        ,
+       0.04048472, 0.14075686, 0.        , 0.00189288, 0.        ,
+       0.        , 0.14915434, 0.0269728 , 0.        , 0.01587254,
+       0.11805298, 0.16799035, 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.08551474, 0.        ,
+       0.        , 0.1741038 , 0.        , 0.        , 0.        ,
+       0.        , 0.10023651, 0.06349457, 0.29079326, 0.        ,
+       0.        , 0.        , 0.07184652, 0.08559285, 0.02628774,
+       0.        , 0.00686473, 0.        , 0.11806188, 0.03543648,
+       0.        , 0.        , 0.        , 0.        , 0.09009603,
+       0.02766946, 0.        , 0.        , 0.        , 0.06965803,
+       0.02942458, 0.        , 0.        , 0.16015328, 0.        ,
+       0.        , 0.03025806, 0.        , 0.        , 0.00237243,
+       0.        , 0.        , 0.        , 0.04785848, 0.15708172,
+       0.00497751, 0.        , 0.15442807, 0.06760171, 0.        ,
+       0.        , 0.        , 0.14936033, 0.11039265, 0.        ,
+       0.0766052 , 0.        , 0.        , 0.        , 0.        ,
+       0.        , 0.11066611, 0.00976479, 0.        , 0.12978053,
+       0.        , 0.        , 0.        , 0.        , 0.09747106,
+       0.        , 0.05011189, 0.0712619 , 0.        , 0.        ,
+       0.05285389, 0.        , 0.        , 0.05424855, 0.        ,
+       0.07824733, 0.0256154 , 0.        , 0.04725113, 0.        ,
+       0.        , 0.        , 0.04909502, 0.        , 0.        ,
+       0.        , 0.        , 0.01982123, 0.0350638 , 0.        ,
+       0.0960775 , 0.        , 0.01571638, 0.12042951, 0.        ,
+       0.        , 0.        , 0.        , 0.        , 0.        ,
+       0.        , 0.09757715, 0.11967867, 0.        , 0.08632686,
+       0.01805897, 0.03115069, 0.04330149, 0.        , 0.        ,
+       0.        , 0.02765097, 0.        , 0.16040115, 0.08891992,
+       0.1677041 , 0.        , 0.08331802, 0.        , 0.        ,
+       0.0499886 , 0.0800585 , 0.09764248, 0.        , 0.        ,
+       0.0565578 , 0.        , 0.06964714, 0.13206102, 0.        ,
+       0.04615972, 0.        , 0.08616413, 0.        , 0.11189199,
+       0.        , 0.11108913, 0.09453807, 0.085976  , 0.02519641,
+       0.        , 0.        , 0.20231993, 0.        , 0.        ,
+       0.        , 0.        , 0.02209231, 0.07676857, 0.        ,
+       0.2500738 , 0.        , 0.18549183, 0.0276011 , 0.15610006,
+       0.07630958, 0.        , 0.        , 0.05704273, 0.04064496,
+       0.        , 0.        , 0.0248357 , 0.00871815, 0.05347695,
+       0.00429798, 0.00424216, 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.19816716, 0.        ,
+       0.        , 0.03876826, 0.        , 0.05009942, 0.0417767 ,
+       0.04488147, 0.        , 0.02257676, 0.13603559, 0.        ,
+       0.00858893, 0.        , 0.        , 0.        , 0.        ,
+       0.02492403, 0.04446345, 0.05902371, 0.00613474, 0.        ,
+       0.08855913, 0.01591215, 0.09567426, 0.03409617, 0.0370032 ,
+       0.03395037, 0.        , 0.        , 0.06979288, 0.        ,
+       0.00469066, 0.        , 0.10095777, 0.21280897, 0.        ,
+       0.        , 0.        , 0.        , 0.01527452, 0.        ,
+       0.00139865, 0.03837033, 0.        , 0.03587943, 0.        ,
+       0.        , 0.03517024, 0.        , 0.        , 0.        ,
+       0.04890358, 0.09903202, 0.        , 0.        , 0.        ,
+       0.        , 0.        , 0.        , 0.        , 0.0133582 ,
+       0.        , 0.        , 0.06856748, 0.        , 0.        ,
+       0.04012811, 0.0672571 , 0.        , 0.01098586, 0.        ,
+       0.19547236, 0.11754455, 0.05297464, 0.        , 0.        ,
+       0.        , 0.        , 0.00242401, 0.        , 0.        ,
+       0.        , 0.0932149 , 0.09432122, 0.        , 0.22899514,
+       0.05180475, 0.01037985, 0.        , 0.        , 0.10155476,
+       0.03728446, 0.        , 0.        , 0.        , 0.01448051,
+       0.        , 0.        , 0.16626607, 0.        , 0.03956823,
+       0.        , 0.08447474, 0.09212349, 0.02813268, 0.07331314,
+       0.        , 0.        , 0.10939858, 0.0280967 , 0.02876436,
+       0.00718275, 0.        , 0.11768863, 0.18505452, 0.        ,
+       0.        , 0.05136567, 0.02350873, 0.        , 0.        ,
+       0.00844626, 0.        , 0.13157229, 0.03989268, 0.        ,
+       0.        , 0.05011266, 0.06974085, 0.04190976, 0.13613525,
+       0.        , 0.12435901, 0.        , 0.02804542, 0.09662194,
+       0.06010973, 0.09833619, 0.10424107, 0.        , 0.        ,
+       0.04826213, 0.        , 0.03046699])
 </pre></div>
 </div>
 </div>
@@ -3797,17 +3831,17 @@ Gain \ (S,A) \equiv Entropy(S) - \sum _{\nu \varepsilon \ values } \dfrac{\left|
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(link,)       0.265294
-(aman,)       0.212118
-(65,)         0.208696
-(size,)       0.207685
-(pdp,)        0.205387
-                ...   
-(nyari,)      0.000000
-(dukung,)     0.000000
-(nyerang,)    0.000000
-(duit,)       0.000000
-(zon,)        0.000000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(hukum,)       0.290793
+(pakai,)       0.250074
+(telegram,)    0.228995
+(sampek,)      0.212809
+(nyata,)       0.202320
+                 ...   
+(menep,)       0.000000
+(dunia,)       0.000000
+(efek,)        0.000000
+(eh,)          0.000000
+(mabok2an,)    0.000000
 Length: 508, dtype: float64
 </pre></div>
 </div>
@@ -3821,7 +3855,7 @@ Length: 508, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fabdf5858d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f7155c0ae90&gt;
 </pre></div>
 </div>
 <img alt="_images/crawlingTwitter_67_1.png" src="_images/crawlingTwitter_67_1.png" />
@@ -3841,43 +3875,159 @@ Length: 508, dtype: float64
   FutureWarning,
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([           (&#39;index&#39;,),               (&#39;20&#39;,),             (&#39;2021&#39;,),
-               (&#39;adresess&#39;,),          (&#39;agustus&#39;,),              (&#39;aja&#39;,),
-                   (&#39;akta&#39;,),             (&#39;akun&#39;,),              (&#39;ama&#39;,),
-                  (&#39;ambil&#39;,),              (&#39;are&#39;,),             (&#39;asal&#39;,),
-                (&#39;belanja&#39;,),           (&#39;bersih&#39;,),           (&#39;bidang&#39;,),
-                  (&#39;bijak&#39;,),          (&#39;bingung&#39;,),           (&#39;binsar&#39;,),
-             (&#39;bjorkanism&#39;,),           (&#39;blokar&#39;,),            (&#39;bobol&#39;,),
-                   (&#39;buat&#39;,),             (&#39;buka&#39;,),              (&#39;cek&#39;,),
-              (&#39;consumers&#39;,),             (&#39;deep&#39;,),              (&#39;dgn&#39;,),
-       (&#39;diperjualbelikan&#39;,),               (&#39;do&#39;,),          (&#39;dokumen&#39;,),
-                   (&#39;duga&#39;,),             (&#39;fake&#39;,),          (&#39;freeong&#39;,),
-                   (&#39;full&#39;,),           (&#39;fungsi&#39;,),            (&#39;ganti&#39;,),
-                   (&#39;grup&#39;,),             (&#39;guna&#39;,),           (&#39;hilang&#39;,),
-                  (&#39;hukum&#39;,),            (&#39;idiot&#39;,),        (&#39;indonesia&#39;,),
-              (&#39;intelijen&#39;,),             (&#39;jaga&#39;,),            (&#39;jahat&#39;,),
-                  (&#39;johny&#39;,),             (&#39;jual&#39;,),            (&#39;kagak&#39;,),
-                   (&#39;kait&#39;,),            (&#39;kalah&#39;,),              (&#39;kam&#39;,),
-              (&#39;kasetpres&#39;,),           (&#39;kepang&#39;,),            (&#39;kirim&#39;,),
-                 (&#39;kisruh&#39;,),            (&#39;klaim&#39;,),             (&#39;know&#39;,),
-                  (&#39;kolam&#39;,),         (&#39;komintol&#39;,),          (&#39;langkah&#39;,),
-                  (&#39;lapor&#39;,),              (&#39;mah&#39;,),          (&#39;mardani&#39;,),
-                  (&#39;masuk&#39;,),               (&#39;mb&#39;,),            (&#39;menko&#39;,),
-                 (&#39;muncul&#39;,),            (&#39;negri&#39;,),         (&#39;nunjukin&#39;,),
-                 (&#39;online&#39;,),            (&#39;orang&#39;,),            (&#39;pages&#39;,),
-             (&#39;pandjaitan&#39;,),            (&#39;panen&#39;,),            (&#39;panik&#39;,),
-                    (&#39;pdp&#39;,),          (&#39;pertiwi&#39;,),         (&#39;practice&#39;,),
-               (&#39;presiden&#39;,),           (&#39;rakyat&#39;,),          (&#39;rancang&#39;,),
-                   (&#39;ribu&#39;,),            (&#39;roket&#39;,),            (&#39;rumah&#39;,),
-                 (&#39;sarana&#39;,),           (&#39;shopee&#39;,),              (&#39;sih&#39;,),
-                  (&#39;simak&#39;,),          (&#39;simcard&#39;,),           (&#39;solusi&#39;,),
-                 (&#39;sosmed&#39;,),             (&#39;suka&#39;,),          (&#39;sukamta&#39;,),
-                    (&#39;tau&#39;,),            (&#39;tegak&#39;,),            (&#39;think&#39;,),
-                   (&#39;tips&#39;,),              (&#39;top&#39;,),            (&#39;warna&#39;,),
-                 (&#39;widodo&#39;,)],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([     (&#39;index&#39;,),       (&#39;2021&#39;,),       (&#39;2022&#39;,),         (&#39;31&#39;,),
+              (&#39;99k&#39;,),        (&#39;aku&#39;,),       (&#39;alum&#39;,),        (&#39;ama&#39;,),
+          (&#39;anggota&#39;,),       (&#39;baca&#39;,),     (&#39;badeur&#39;,),     (&#39;banget&#39;,),
+          (&#39;bendera&#39;,),      (&#39;beres&#39;,),     (&#39;bersih&#39;,),      (&#39;bijak&#39;,),
+           (&#39;binsar&#39;,),     (&#39;bjorka&#39;,),     (&#39;blokar&#39;,),     (&#39;blokir&#39;,),
+            (&#39;bobol&#39;,),  (&#39;brawijaya&#39;,),       (&#39;cari&#39;,),        (&#39;cod&#39;,),
+        (&#39;consumers&#39;,),   (&#39;crewneck&#39;,),      (&#39;cuman&#39;,), (&#39;delightful&#39;,),
+          (&#39;dokumen&#39;,),      (&#39;dunia&#39;,), (&#39;elektronik&#39;,),       (&#39;fans&#39;,),
+            (&#39;gagal&#39;,),      (&#39;geser&#39;,),      (&#39;gilir&#39;,),        (&#39;gmn&#39;,),
+             (&#39;grab&#39;,),         (&#39;gw&#39;,),       (&#39;hati&#39;,),   (&#39;himbauan&#39;,),
+            (&#39;hoaks&#39;,),        (&#39;hut&#39;,),      (&#39;idiot&#39;,),       (&#39;ikut&#39;,),
+        (&#39;indonesia&#39;,),  (&#39;informasi&#39;,),      (&#39;ingat&#39;,),        (&#39;iya&#39;,),
+            (&#39;kabar&#39;,),     (&#39;kadang&#39;,),       (&#39;kait&#39;,),       (&#39;kali&#39;,),
+            (&#39;kartu&#39;,),      (&#39;kerap&#39;,),     (&#39;khusus&#39;,),    (&#39;laksana&#39;,),
+             (&#39;laku&#39;,),     (&#39;layang&#39;,),      (&#39;marak&#39;,),     (&#39;miliar&#39;,),
+           (&#39;negara&#39;,),      (&#39;nggak&#39;,),         (&#39;no&#39;,),      (&#39;nyari&#39;,),
+           (&#39;online&#39;,),      (&#39;pakai&#39;,), (&#39;pandjaitan&#39;,),    (&#39;panikkk&#39;,),
+            (&#39;pasti&#39;,),     (&#39;rentan&#39;,),      (&#39;retas&#39;,),       (&#39;ribu&#39;,),
+               (&#39;s1&#39;,),     (&#39;sampek&#39;,),      (&#39;sebut&#39;,),    (&#39;selesai&#39;,),
+           (&#39;serang&#39;,),         (&#39;si&#39;,),      (&#39;siber&#39;,),        (&#39;sim&#39;,),
+          (&#39;simcard&#39;,),       (&#39;situ&#39;,),     (&#39;solusi&#39;,),       (&#39;suka&#39;,),
+            (&#39;surat&#39;,),      (&#39;suruh&#39;,),     (&#39;tangan&#39;,),        (&#39;tau&#39;,),
+            (&#39;tegak&#39;,),       (&#39;than&#39;,),     (&#39;thread&#39;,),    (&#39;tinggal&#39;,),
+           (&#39;tonton&#39;,),        (&#39;top&#39;,),    (&#39;tumbang&#39;,),       (&#39;ukur&#39;,),
+             (&#39;umum&#39;,),      (&#39;viral&#39;,),         (&#39;ya&#39;,),        (&#39;you&#39;,)],
       dtype=&#39;object&#39;)
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="klasifikasi">
+<h2>Klasifikasi<a class="headerlink" href="#klasifikasi" title="Permalink to this headline">#</a></h2>
+<section id="knn">
+<h3>KNN<a class="headerlink" href="#knn" title="Permalink to this headline">#</a></h3>
+<p>Algoritma K-Nearest Neighbor (KNN) adalah sebuah metode klasifikasi terhadap sekumpulan data berdasarkan pembelajaran data yang sudah terklasifikasikan sebelumya. Termasuk dalam supervised learning, dimana hasil query instance yang baru diklasifikasikan berdasarkan mayoritas kedekatan jarak dari kategori yang ada dalam K-NN. Algoritma ini bertujuan untuk mengklasifikasikan obyek baru berdasarkan atribut dan sample-sample dari training data.</p>
+<p>Import algoritma KNN dari sklearn, lalu aktifkan fungsi klasifikasi KNN serta atur koefisien N, pada dataset ini N sudah diatur dengan 2 sebab akurasi terbaik terdapat pada angka N ke 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="n">neigh</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">neigh</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">neigh</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> 
+<span class="n">Y_pred</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;negatif&#39;, &#39;netral&#39;, &#39;netral&#39;, &#39;negatif&#39;, &#39;netral&#39;, &#39;negatif&#39;,
+       &#39;negatif&#39;, &#39;negatif&#39;, &#39;negatif&#39;, &#39;negatif&#39;, &#39;negatif&#39;, &#39;positif&#39;,
+       &#39;positif&#39;, &#39;negatif&#39;, &#39;negatif&#39;, &#39;netral&#39;, &#39;positif&#39;, &#39;netral&#39;,
+       &#39;negatif&#39;, &#39;netral&#39;, &#39;negatif&#39;, &#39;negatif&#39;, &#39;negatif&#39;, &#39;negatif&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menampilkan nilai akurasi dari algoritma KNN</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span><span class="n">precision_score</span>
+<span class="n">testing</span> <span class="o">=</span> <span class="n">neigh</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> 
+<span class="n">accuracy_neigh</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">testing</span><span class="p">)</span><span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">accuracy_neigh</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45.83
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="confusion-matrix">
+<h3>Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">#</a></h3>
+<p>Confusion Matrix adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih.  Confusion Matrix adalah tabel dengan 4 kombinasi berbeda dari nilai prediksi dan nilai aktual.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Import pyplot untuk membuat plot matriks menjadi tidak eror jika ditampilkan, lalu import metrics dari sklearn untuk membuat matriksnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conf_matrix</span> <span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">=</span><span class="n">Y_pred</span><span class="p">)</span>
+<span class="n">cm_display</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">conf_matrix</span><span class="p">,</span> <span class="n">display_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;negatif&#39;</span><span class="p">,</span> <span class="s1">&#39;netral&#39;</span><span class="p">,</span><span class="s1">&#39;positif&#39;</span><span class="p">])</span>
+<span class="n">cm_display</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/crawlingTwitter_79_0.png" src="_images/crawlingTwitter_79_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="clustering">
+<h2>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">#</a></h2>
+<section id="k-means">
+<h3>K MEANS<a class="headerlink" href="#k-means" title="Permalink to this headline">#</a></h3>
+<p>Algoritma k-means merupakan algoritma yang membutuhkan parameter input sebanyak k dan membagi sekumpulan n objek kedalam k cluster sehingga tingkat kemiripan antar anggota dalam satu cluster tinggi sedangkan tingkat kemiripan dengan anggota pada cluster lain sangat rendah. Kemiripan anggota terhadap cluster diukur dengan kedekatan objek terhadap nilai mean pada cluster atau dapat disebut sebagai centroid cluster.</p>
+<p>Rumus menghitung jarak terdekat digunakan formula <em>Ecludean</em> sebagai berikut :</p>
+<div class="math notranslate nohighlight">
+\[
+d(i,j) = \sqrt{\sum ^{m}_{j=1}\left( x_{ij}-c_{kj}\right) ^{2}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span><span class="p">,</span> <span class="n">TruncatedSVD</span>
+
+<span class="sd">&quot;&quot;&quot;Train the Kmeans with the best n of clusters&quot;&quot;&quot;</span>
+<span class="n">modelKm</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">modelKm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">prediksi</span> <span class="o">=</span> <span class="n">modelKm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Dimensionality reduction used to plot in 2d representation&quot;&quot;&quot;</span>
+<span class="n">pc</span><span class="o">=</span><span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_new</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataTF</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">centroids</span><span class="o">=</span><span class="n">pc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">modelKm</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_new</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">X_new</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">prediksi</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">centroids</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="n">centroids</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.06291564 -0.08144143]
+ [ 0.94134721 -0.18155896]
+ [ 1.13742363  2.09113126]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f714f023ed0&gt;
+</pre></div>
+</div>
+<img alt="_images/crawlingTwitter_83_2.png" src="_images/crawlingTwitter_83_2.png" />
 </div>
 </div>
 </section>
@@ -3911,13 +4061,6 @@ Length: 508, dtype: float64
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="VSM.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Vector Space Model</p>
-        </div>
-    </a>
 </div>
             </footer>
         </div>
@@ -3925,9 +4068,9 @@ Length: 508, dtype: float64
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Faridz Nur F S N<br/>
+    By The Jupyter Book Community<br/>
   
-      &copy; Copyright Faridz_ter.<br/>
+      &copy; Copyright 2022.<br/>
 </p>
         </footer>
     </div>
