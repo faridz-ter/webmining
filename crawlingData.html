@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>CRAWLING DATA &#8212; WEB MINING</title>
+    <title>CRAWLING DATA &#8212; My sample book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,7 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -98,7 +97,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">WEB MINING</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -114,10 +113,15 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   CRAWLING DATA
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
   </a>
  </li>
 </ul>
@@ -192,24 +196,6 @@ title="Launch on Binder"
     <img src="_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://colab.research.google.com/drive/1L_AdOVmBgjTh0cCuMmGDbzJo4N8LDPsQ#scrollTo=qmEI03Cbvdrw/github/executablebooks/jupyter-book/blob/master/docs/crawlingData.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
-  </span>
-<span class="headerbtn__text-container">Colab</span>
 </a>
 
       </li>
@@ -416,6 +402,11 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crawling-berita-dengan-scrapy">
+     Crawling berita dengan Scrapy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pypdf2">
      PyPDF2
     </a>
@@ -532,6 +523,11 @@ title="Print to PDF"
    Meringkas berita dengan Graph dan Pagerank
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crawling-berita-dengan-scrapy">
+     Crawling berita dengan Scrapy
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pypdf2">
      PyPDF2
@@ -4230,7 +4226,8 @@ d(i,j) = \sqrt{\sum ^{m}_{j=1}\left( x_{ij}-c_{kj}\right) ^{2}}
 </section>
 <section id="meringkas-berita-dengan-graph-dan-pagerank">
 <h2>Meringkas berita dengan Graph dan Pagerank<a class="headerlink" href="#meringkas-berita-dengan-graph-dan-pagerank" title="Permalink to this headline">#</a></h2>
-<p>###Crawling berita dengan Scrapy</p>
+<section id="crawling-berita-dengan-scrapy">
+<h3>Crawling berita dengan Scrapy<a class="headerlink" href="#crawling-berita-dengan-scrapy" title="Permalink to this headline">#</a></h3>
 <p>Scrapy adalah kerangka kerja aplikasi untuk crawling web site dan mengekstraksi data terstruktur yang dapat digunakan untuk berbagai aplikasi yang bermanfaat, seperti data mining, pemrosesan informasi atau arsip sejarah. Meskipun Scrapy awalnya dirancang untuk web scraping, namu scrapy juga dapat digunakan untuk mengekstrak data menggunakan API (seperti Amazon Associates Web Services) atau sebagai web crawl</p>
 <p>Crochet adalah library pyhton berlisensi MIT yang memudahkan penggunaan Twisted dari regular blocking code. Beberapa kasus penggunaan meliputi:</p>
 <ul class="simple">
@@ -4557,6 +4554,7 @@ Successfully installed crochet-2.0.0
   </div>
 </div></div>
 </div>
+</section>
 <section id="pypdf2">
 <h3>PyPDF2<a class="headerlink" href="#pypdf2" title="Permalink to this headline">#</a></h3>
 <p>PyPDF2 adalah library Python yang memungkinkan manipulasi dokumen PDF. Ini dapat digunakan untuk membuat dokumen PDF baru, memodifikasi yang sudah ada, dan mengekstrak konten dari dokumen. PyPDF2 adalah library Python yang tidak memerlukan modul non-standar.</p>
@@ -5486,13 +5484,6 @@ yang dipilih oleh proses genetika adalah kalimat yang memiliki tingkat pentingny
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome to your Jupyter Book</p>
-        </div>
-    </a>
 </div>
             </footer>
         </div>
@@ -5500,7 +5491,7 @@ yang dipilih oleh proses genetika adalah kalimat yang memiliki tingkat pentingny
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Faridz Nur F S N<br/>
+    By The Jupyter Book Community<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
