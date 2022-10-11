@@ -524,7 +524,7 @@ plt.scatter(centroids[:,0] , centroids[:,1] , s = 50, color = 'red')
 
 # ## Meringkas berita dengan Graph dan Pagerank
 
-# ###Crawling berita dengan Scrapy
+# ### Crawling berita dengan Scrapy
 
 # Scrapy adalah kerangka kerja aplikasi untuk crawling web site dan mengekstraksi data terstruktur yang dapat digunakan untuk berbagai aplikasi yang bermanfaat, seperti data mining, pemrosesan informasi atau arsip sejarah. Meskipun Scrapy awalnya dirancang untuk web scraping, namu scrapy juga dapat digunakan untuk mengekstrak data menggunakan API (seperti Amazon Associates Web Services) atau sebagai web crawl
 
