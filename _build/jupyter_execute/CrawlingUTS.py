@@ -293,6 +293,12 @@ dataTF
 # ### K MEANS
 # Algoritma k-means merupakan algoritma yang membutuhkan parameter input sebanyak k dan membagi sekumpulan n objek kedalam k cluster sehingga tingkat kemiripan antar anggota dalam satu cluster tinggi sedangkan tingkat kemiripan dengan anggota pada cluster lain sangat rendah. Kemiripan anggota terhadap cluster diukur dengan kedekatan objek terhadap nilai mean pada cluster atau dapat disebut sebagai centroid cluster.
 
+# Rumus menghitung jarak terdekat digunakan formula *Ecludean* sebagai berikut :
+# 
+# $$
+# d(i,j) = \sqrt{\sum ^{m}_{j=1}\left( x_{ij}-c_{kj}\right) ^{2}}
+# $$
+
 # In[44]:
 
 

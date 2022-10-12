@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>SOAL UTS WEB MINING &#8212; WEB MINING</title>
+    <title>SOAL UTS WEB MINING &#8212; My sample book</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,8 +50,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CRAWLING DATA" href="crawlingData.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -96,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">WEB MINING</h1>
+      <h1 class="site-logo" id="site-title">My sample book</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -116,6 +119,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    SOAL UTS WEB MINING
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="crawlingData.html">
+   CRAWLING DATA
   </a>
  </li>
 </ul>
@@ -177,7 +185,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/faridz-ter/webmining/master?urlpath=tree/docs/CrawlingUTS.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/CrawlingUTS.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -190,24 +198,6 @@ title="Launch on Binder"
     <img src="_static/images/logo_binder.svg">
   </span>
 <span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://colab.research.google.com/github/faridz-ter/webmining/blob/master/docs/CrawlingUTS.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
-  </span>
-<span class="headerbtn__text-container">Colab</span>
 </a>
 
       </li>
@@ -238,7 +228,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/faridz-ter/webmining"
+        <a href="https://github.com/executablebooks/jupyter-book"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -255,7 +245,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/faridz-ter/webmining/issues/new?title=Issue%20on%20page%20%2FCrawlingUTS.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FCrawlingUTS.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1834,6 +1824,11 @@ Successfully installed Sastrawi-1.0.1
 <section id="k-means">
 <h3>K MEANS<a class="headerlink" href="#k-means" title="Permalink to this headline">#</a></h3>
 <p>Algoritma k-means merupakan algoritma yang membutuhkan parameter input sebanyak k dan membagi sekumpulan n objek kedalam k cluster sehingga tingkat kemiripan antar anggota dalam satu cluster tinggi sedangkan tingkat kemiripan dengan anggota pada cluster lain sangat rendah. Kemiripan anggota terhadap cluster diukur dengan kedekatan objek terhadap nilai mean pada cluster atau dapat disebut sebagai centroid cluster.</p>
+<p>Rumus menghitung jarak terdekat digunakan formula <em>Ecludean</em> sebagai berikut :</p>
+<div class="math notranslate nohighlight">
+\[
+d(i,j) = \sqrt{\sum ^{m}_{j=1}\left( x_{ij}-c_{kj}\right) ^{2}}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1865,7 +1860,7 @@ Successfully installed Sastrawi-1.0.1
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f20588715d0&gt;
 </pre></div>
 </div>
-<img alt="_images/CrawlingUTS_51_2.png" src="_images/CrawlingUTS_51_2.png" />
+<img alt="_images/CrawlingUTS_52_2.png" src="_images/CrawlingUTS_52_2.png" />
 </div>
 </div>
 </section>
@@ -2513,7 +2508,7 @@ Kosa kata :  [&#39;11&#39; &#39;15&#39; &#39;18&#39; &#39;2004&#39; &#39;2022&#3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/CrawlingUTS_81_0.png" src="_images/CrawlingUTS_81_0.png" />
+<img alt="_images/CrawlingUTS_82_0.png" src="_images/CrawlingUTS_82_0.png" />
 </div>
 </div>
 <p>menampilkan banyak sisi dari graph yang berjumlah 151 sisi</p>
@@ -3155,6 +3150,13 @@ yang dipilih oleh proses genetika adalah kalimat yang memiliki tingkat pentingny
             <p class="prev-next-title">Welcome to your Jupyter Book</p>
         </div>
     </a>
+    <a class='right-next' id="next-link" href="crawlingData.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">CRAWLING DATA</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -3162,7 +3164,7 @@ yang dipilih oleh proses genetika adalah kalimat yang memiliki tingkat pentingny
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Faridz Nur F S N<br/>
+    By The Jupyter Book Community<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
