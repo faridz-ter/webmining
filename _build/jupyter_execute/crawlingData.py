@@ -16,7 +16,7 @@ drive.mount('/content/drive')
 
 # Masuk ke direktori projek Web Mining
 
-# In[ ]:
+# In[6]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining')
@@ -82,7 +82,7 @@ twint.run.Search(c)
 
 # Membuka file **csv** yang sudah dilabeli secara manual dengan 3 kelas yaitu positif, netral, dan negatif. 
 
-# In[ ]:
+# In[3]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining/webmining')
@@ -107,7 +107,7 @@ data
 # 
 # 
 
-# In[ ]:
+# In[3]:
 
 
 get_ipython().system('pip install nltk')
@@ -120,7 +120,7 @@ get_ipython().system('pip install Sastrawi')
 # 
 # >**NumPy** merupakan singkatan dari Numerical Python. NumPy merupakan salah satu library Python yang berfungsi untuk proses komputasi numerik. NumPy memiliki kemampuan untuk membuat objek N-dimensi array. Array merupakan sekumpulan variabel yang memiliki tipe data yang sama. Kelebihan dari NumPy Array adalah dapat memudahkan operasi komputasi pada data, cocok untuk melakukan akses secara acak, dan elemen array merupakan sebuah nilai yang independen sehingga penyimpanannya dianggap sangat efisien.
 
-# In[ ]:
+# In[6]:
 
 
 import pandas as pd
@@ -218,9 +218,11 @@ def preprocessing(text):
 data['tweet'].apply(preprocessing).to_csv('hasilPreprocessing.csv')
 
 
-# In[ ]:
+# In[4]:
 
 
+import pandas as pd
+import numpy as np
 dataPre = pd.read_csv('hasilPreprocessing.csv')
 dataPre
 
@@ -231,7 +233,7 @@ dataPre
 
 # Import modul untuk membuat Vector Space Model dari library Sklearn, serta import data hasil preprocessing 
 
-# In[ ]:
+# In[5]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
@@ -242,14 +244,14 @@ bag = vectorizer.fit_transform(dataTextPre['tweet'])
 
 # Membuat matriks menjadi matriks array dan dilakukan shape pada matriks yang sudah dibuat 
 
-# In[ ]:
+# In[6]:
 
 
 matrik_vsm = bag.toarray()
 matrik_vsm.shape
 
 
-# In[ ]:
+# In[7]:
 
 
 matrik_vsm[0]
@@ -257,7 +259,7 @@ matrik_vsm[0]
 
 # Mengambil semua kata yang sudah di tokenizing menjadi kolom - kolom atau fitur pada matriks VSM
 
-# In[ ]:
+# In[8]:
 
 
 a = vectorizer.get_feature_names()
@@ -265,7 +267,7 @@ a = vectorizer.get_feature_names()
 
 # Menampilkan Matriks VSM yang sduah dihitung frekuensi kemunculan term pada setiap tweet atau dokumen.
 
-# In[ ]:
+# In[9]:
 
 
 dataTF = pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
@@ -274,7 +276,7 @@ dataTF
 
 # Menambahkan kolom label pada setiap tweet dan mengisi setiap baris pada kolom Label dengan data yang telah diisi manual.
 
-# In[ ]:
+# In[10]:
 
 
 label = pd.read_csv('/content/drive/MyDrive/Web Mining/webmining/dataBocor.csv')
@@ -284,13 +286,13 @@ dataVSM
 
 # Membuat Kolom Label menjadi kolom unique
 
-# In[ ]:
+# In[11]:
 
 
 dataVSM['label'].unique()
 
 
-# In[ ]:
+# In[12]:
 
 
 dataVSM.info()
@@ -300,7 +302,7 @@ dataVSM.info()
 
 # Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.
 
-# In[ ]:
+# In[13]:
 
 
 get_ipython().system('pip install -U scikit-learn')
@@ -336,7 +338,7 @@ get_ipython().system('pip install -U scikit-learn')
 # (Sv) : entropy untuk sampel sampel yang memiliki nilai v
 # 
 
-# In[ ]:
+# In[14]:
 
 
 from sklearn.model_selection import train_test_split
@@ -346,7 +348,7 @@ X_train,X_test,y_train,y_test=train_test_split(dataVSM.drop(labels=['label'], ax
     random_state=0)
 
 
-# In[ ]:
+# In[15]:
 
 
 X_train
@@ -354,7 +356,7 @@ X_train
 
 # Menghitung Information gain menggunakan modul yang sudah ada di sklearn dengan mengambil data yang sudah ditrain split.
 
-# In[ ]:
+# In[16]:
 
 
 from sklearn.feature_selection import mutual_info_classif
@@ -364,7 +366,7 @@ mutual_info
 
 # Meranking setiap term mulai dari information gain terbesar sampai yang terkecil.
 
-# In[ ]:
+# In[17]:
 
 
 mutual_info = pd.Series(mutual_info)
@@ -374,7 +376,7 @@ mutual_info.sort_values(ascending=False)
 
 # Membuat plot berbentuk grafik batang atau bar dari data perankingan term.
 
-# In[ ]:
+# In[18]:
 
 
 mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
@@ -382,7 +384,7 @@ mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
 
 # Memilih K best sebanyak 75 item untuk training data
 
-# In[ ]:
+# In[19]:
 
 
 from sklearn.feature_selection import SelectKBest
@@ -391,7 +393,7 @@ sel_five_cols.fit(X_train, y_train)
 X_train.columns[sel_five_cols.get_support()]
 
 
-# In[ ]:
+# In[20]:
 
 
 X_train=X_train.values
@@ -407,7 +409,7 @@ y_test=y_test.values
 
 # Import algoritma KNN dari sklearn, lalu aktifkan fungsi klasifikasi KNN serta atur koefisien N, pada dataset ini kita gunakan perulangan untuk mendapatkan nilai n terbaik akurasinya 
 
-# In[ ]:
+# In[31]:
 
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -424,7 +426,7 @@ testing
 
 # Menampilkan nilai akurasi dari algoritma KNN dengan nilai n berbeda - beda
 
-# In[ ]:
+# In[32]:
 
 
 from sklearn.metrics import make_scorer, accuracy_score,precision_score
@@ -442,7 +444,7 @@ listtest
 
 # membuat grafik untuk melihat nilai n terbaik, dan dapat dilihat bahwa nilai n terbaik ada pada n ke 12
 
-# In[ ]:
+# In[33]:
 
 
 from matplotlib import pyplot as plt
@@ -455,16 +457,16 @@ plt.xlabel('Nilai n')
 
 # membuat algoritma KNN dengan nilai n = 12 dan menampilkan nilai akurasinya
 
-# In[ ]:
+# In[34]:
 
 
 from sklearn.neighbors import KNeighborsClassifier
 
 neigh = KNeighborsClassifier(n_neighbors=12)
 neigh.fit(X_train, y_train)
-Y_pred = neigh.predict(X_test) 
+Y_pred = neigh.predict(X_test)
 from sklearn.metrics import make_scorer, accuracy_score,precision_score
-testing = neigh.predict(X_test) 
+testing = neigh.predict(X_test)
 accuracy_neigh=round(accuracy_score(y_test,testing)* 100, 2)
 accuracy_neigh
 
@@ -473,7 +475,7 @@ accuracy_neigh
 # Confusion Matrix adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih.  Confusion Matrix adalah tabel dengan 4 kombinasi atau lebih berbeda dari nilai prediksi dan nilai aktual. 
 # 
 
-# In[ ]:
+# In[35]:
 
 
 import matplotlib.pyplot as plt
@@ -482,7 +484,7 @@ from sklearn import metrics
 
 # Import pyplot untuk membuat plot matriks menjadi tidak eror jika ditampilkan, lalu import metrics dari sklearn untuk membuat matriksnya.
 
-# In[ ]:
+# In[36]:
 
 
 conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=Y_pred)
@@ -502,7 +504,7 @@ plt.show()
 # d(i,j) = \sqrt{\sum ^{m}_{j=1}\left( x_{ij}-c_{kj}\right) ^{2}}
 # $$
 
-# In[ ]:
+# In[37]:
 
 
 from sklearn.cluster import KMeans
@@ -785,4 +787,244 @@ sortSentence
 
 
 sortSentence.head(5)
+
+
+# ## Latent Semantic Indexing(LSI)
+
+# > Latent Semantic Indexing adalah teknik dalam pemrosesan bahasa alami untuk menganalisis hubungan antara sekumpulan dokumen dan term yang dikandungnya dengan menghasilkan sekumpulan konsep yang berkaitan dengan dokumen dan term tersebut.
+
+# install library nltk, Pysastrawi, dan sastrawi untuk preprocessing teks dokumen.
+
+# In[ ]:
+
+
+get_ipython().system('pip install nltk')
+get_ipython().system('pip install PySastrawi')
+get_ipython().system('pip install Sastrawi')
+
+
+# import data konten web yang sudah di crawling sebelumnya menggunakan library PyPDF2
+
+# In[ ]:
+
+
+import PyPDF2
+pdfReader = PyPDF2.PdfFileReader('/content/drive/MyDrive/Web Mining/webmining/beritaUGM.pdf')
+pageObj = pdfReader.getPage(0)
+document = pageObj.extractText()
+document
+
+
+# import pandas, re(regular expression), stopword dari nltk.corpus, dan word_tokenize dari nltk.tokenize untuk penggunaan preprocessing pada teks dokumen.
+
+# In[ ]:
+
+
+import pandas as pd
+import re
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import nltk
+nltk.download('stopwords')
+
+
+# memisah setiap kata pada teks dokumen menggunakan tanda spasi sebagai pemisahnya. 
+
+# In[ ]:
+
+
+word_tokens = word_tokenize(document)
+print(word_tokens)
+
+
+# stopword pada teks dokumen.
+
+# In[ ]:
+
+
+stop_words = set(stopwords.words('indonesian'))
+word_tokens_no_stopwords = [w for w in word_tokens if not w in stop_words]
+print(word_tokens_no_stopwords)
+
+
+# import library RegexpTokenizer untuk tokenizing regular expression, TfidfVectorizer untuk membuat matrix tfidf, dan TruncatedSVD untuk algoritma LSA-nya.
+
+# In[ ]:
+
+
+import os
+from nltk.tokenize import RegexpTokenizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import TruncatedSVD
+
+
+# In[ ]:
+
+
+tfidf = TfidfVectorizer(lowercase=True,
+                        ngram_range = (1,1))
+
+train_data = tfidf.fit_transform(word_tokens_no_stopwords)
+train_data
+
+
+# In[ ]:
+
+
+num_components=10
+
+# Create SVD object
+lsa = TruncatedSVD(n_components=num_components, n_iter=100, random_state=42)
+
+# Fit SVD model on data
+lsa.fit_transform(train_data)
+
+# Get Singular values and Components 
+Sigma = lsa.singular_values_ 
+V_transpose = lsa.components_.T
+V_transpose
+
+
+# Menampilkan hasil LSA yang dipisah menjadi 10 topik terpenting dalam teks dokumen. Sehingga dapan disimpulkan pada topik 1 menjadi topik terpenting dalam teks dokumen yaitu 'korban', 'ugm', 'yogyakarta', 'lantai', ' dan 'surat'.
+
+# In[ ]:
+
+
+terms = tfidf.get_feature_names()
+
+for index, component in enumerate(lsa.components_):
+    zipped = zip(terms, component)
+    top_terms_key=sorted(zipped, key = lambda t: t[1], reverse=True)[:5]
+    top_terms_list=list(dict(top_terms_key).keys())
+    print("Topic "+str(index+1)+": ",top_terms_list)
+
+
+# ## Ensemble BaggingClassifier
+
+# Bagging juga dikenal sebagai Bootstrap aggregating, meta-algoritma ensemble machine learning yang dirancang untuk meningkatkan stabilitas dan akurasi algoritma pembelajaran mesin yang digunakan untuk analisis klasifikasi dan regresi. Ini membantu mengurangi variasi dan membantu menghindari overfitting. Contoh terbaik adalah random forest.
+
+# ### Metode DecisionTreeClassifier
+
+# menggunakan metode Decision Tree dengan jumlah estimator dari ensemble 500 menghasilkan nilai akurasi 0.4424
+
+# In[38]:
+
+
+from sklearn import model_selection
+from sklearn.ensemble import BaggingClassifier
+from sklearn.tree import DecisionTreeClassifier
+import pandas as pd
+
+X = X_train
+Y = y_train
+
+# initialize the base classifier
+base_cls = DecisionTreeClassifier()
+
+# no. of base classifier
+num_trees = 500
+
+# bagging classifier
+model = BaggingClassifier(base_estimator = base_cls,
+						n_estimators = num_trees)
+
+results = model_selection.cross_val_score(model, X, Y)
+print("accuracy :")
+print(results.mean())
+
+
+# ### Metode SVC
+
+# menggunakan metode Support Vector Classifier dengan jumlah estimator dari ensemble 500 menghasilkan nilai akurasi 0.3530
+
+# In[39]:
+
+
+from sklearn import model_selection
+from sklearn.ensemble import BaggingClassifier
+from sklearn.svm import SVC
+import pandas as pd
+
+X = X_train
+Y = y_train
+
+# initialize the base classifier
+base_cls = SVC()
+
+# no. of base classifier
+num_trees = 500
+
+# bagging classifier
+model = BaggingClassifier(base_estimator = base_cls,
+						n_estimators = num_trees)
+
+results = model_selection.cross_val_score(model, X, Y)
+print("accuracy :")
+print(results.mean())
+
+
+# ### Ensemble RandomForestClassifier dengan GridSearchCV
+
+# GridSearchCV adalah salah satu teknik HyperParameter paling dasar yang digunakan sehingga implementasinya cukup sederhana. Semua kemungkinan permutasi dari HyperParameter untuk model tertentu digunakan untuk membangun model. Kinerja setiap model dievaluasi dan yang berkinerja terbaik dipilih. Karena GridSearchCV menggunakan berbagai kombinasi untuk membangun dan mengevaluasi kinerja model, metode ini sangat lama secara komputasi. Implementasi python dari GridSearchCV untuk algoritma Random Forest pada code berikut.
+
+# menggunakan metode random forest classifier dengan jumlah estimator, max feature, max depth, dan criterion ditentukan oleh gridsearchCV
+
+# In[40]:
+
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import make_classification
+from sklearn.model_selection import GridSearchCV
+# 'n_estimators': [i for i in range(800)],
+rfc=RandomForestClassifier(random_state=42)
+param_grid = { 
+    'n_estimators': [50,100,200,500],
+    'max_features': ['auto', 'sqrt', 'log2'],
+    'max_depth' : [4,5,6,7,8],
+    'criterion' :['gini', 'entropy']
+}
+CV_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv= 5)
+CV_rfc.fit(X_train, y_train)
+
+
+# menampilkan parameter terbaik dari random forest
+
+# In[42]:
+
+
+CV_rfc.best_params_
+
+
+# hasil klasifikasi random forest mendapatkan nilai akurasi 0.4583
+
+# In[52]:
+
+
+rfc1=RandomForestClassifier(random_state=42, max_features='log2', n_estimators= 100, max_depth=6, criterion='gini')
+rfc1.fit(X_train, y_train)
+pred=rfc1.predict(X_test)
+print("Accuracy for Random Forest on CV data: ",accuracy_score(y_test,pred))
+
+
+# ## Ensemble StackingClassifier
+
+# Stacking adalah metode pembelajaran ensamble yang menggabungkan beberapa algoritma machine learning melalui meta learning, Di mana algoritme tingkat dasar dilatih berdasarkan kumpulan data pelatihan lengkap, model meta mereka dilatih pada hasil akhir dari semua model tingkat dasar sebagai fitur. Kami telah berurusan dengan metode bagging dan boosting untuk menangani bias dan varians. Sekarang kita bisa belajar stacking yang meningkatkan akurasi prediksi model Anda.
+
+# Hasil klasifikasi ensemble stacking dengan metode random forest mendapatkan nilai akurasi 0.73214
+
+# In[21]:
+
+
+from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import LinearSVC
+from sklearn.ensemble import StackingClassifier
+estimators = [
+    ('rf', RandomForestClassifier(random_state=42,max_features='auto', n_estimators= 100, max_depth=8, criterion='gini')),
+    ('rf2', RandomForestClassifier(random_state=42,max_features='auto', n_estimators= 100, max_depth=8, criterion='entropy'))
+]
+clf = StackingClassifier(
+    estimators=estimators, final_estimator=RandomForestClassifier(n_estimators=10, random_state=42)
+)
+clf.fit(X_train, y_train).score(X_train, y_train)
 
