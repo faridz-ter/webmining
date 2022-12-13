@@ -98,7 +98,7 @@ c.Output = "dataKanjuruhan.csv"
 twint.run.Search(c)
 
 
-# In[18]:
+# In[ ]:
 
 
 pwd
@@ -106,7 +106,7 @@ pwd
 
 # Membuka file **csv** 
 
-# In[21]:
+# In[ ]:
 
 
 import pandas as pd
@@ -125,7 +125,7 @@ data
 # 
 # 
 
-# In[22]:
+# In[ ]:
 
 
 get_ipython().system('pip install nltk')
@@ -138,7 +138,7 @@ get_ipython().system('pip install Sastrawi')
 # 
 # >**NumPy** merupakan singkatan dari Numerical Python. NumPy merupakan salah satu library Python yang berfungsi untuk proses komputasi numerik. NumPy memiliki kemampuan untuk membuat objek N-dimensi array. Array merupakan sekumpulan variabel yang memiliki tipe data yang sama. Kelebihan dari NumPy Array adalah dapat memudahkan operasi komputasi pada data, cocok untuk melakukan akses secara acak, dan elemen array merupakan sebuah nilai yang independen sehingga penyimpanannya dianggap sangat efisien.
 
-# In[23]:
+# In[ ]:
 
 
 import pandas as pd
@@ -153,7 +153,7 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 # **Function Remove Stopwords** berguna menghapus kata-kata yang tidak diperlukan dalam proses nantinya,sehingga dapat mempercepat proses VSM. Kita meenggunakan kumpulan stopword dari github yang berjumlah sekitar 700 kata. 
 
-# In[24]:
+# In[ ]:
 
 
 def remove_stopwords(text):
@@ -169,7 +169,7 @@ def remove_stopwords(text):
 
 # **Stemming** merupakan proses mengubah kata dalam bahasa Indonesia ke akar katanya atau tidak ada kata yang berimbuhan pada awal maupun akhir kata serta tidak ada kata yang berulangan misalkan 'anak perempuan berjalan - jalan' menjadi 'anak perempuan jalan'
 
-# In[25]:
+# In[ ]:
 
 
 def stemming(text):
@@ -193,7 +193,7 @@ def stemming(text):
 # * Mengubah kata dalam bahasa Indonesia ke akar katanya
 # * Menghapus String kosong
 
-# In[26]:
+# In[ ]:
 
 
 def preprocessing(text):
@@ -230,13 +230,13 @@ def preprocessing(text):
 
 # Menyimpan data yang sudah dilakukan Preprocessing ke dalam file csv baru dan tersimpan di folder yang sama dengan file ipynb.
 
-# In[28]:
+# In[ ]:
 
 
 data['tweet'].apply(preprocessing).to_csv('hasilPreprocessingKanjuruhan.csv')
 
 
-# In[29]:
+# In[ ]:
 
 
 dataPre = pd.read_csv('hasilPreprocessingKanjuruhan.csv')
@@ -249,7 +249,7 @@ dataPre
 
 # Import modul untuk membuat Vector Space Model dari library Sklearn, serta import data hasil preprocessing
 
-# In[30]:
+# In[ ]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
@@ -260,14 +260,14 @@ bag = vectorizer.fit_transform(dataTextPre['tweet'])
 
 # Membuat matriks menjadi matriks array dan dilakukan shape pada matriks yang sudah dibuat 
 
-# In[31]:
+# In[ ]:
 
 
 matrik_vsm = bag.toarray()
 matrik_vsm.shape
 
 
-# In[32]:
+# In[ ]:
 
 
 matrik_vsm[0]
@@ -275,7 +275,7 @@ matrik_vsm[0]
 
 # Mengambil semua kata yang sudah di tokenizing menjadi kolom - kolom atau fitur pada matriks VSM
 
-# In[33]:
+# In[ ]:
 
 
 a = vectorizer.get_feature_names()
@@ -283,7 +283,7 @@ a = vectorizer.get_feature_names()
 
 # Menampilkan Matriks VSM yang sduah dihitung frekuensi kemunculan term pada setiap tweet atau dokumen.
 
-# In[34]:
+# In[ ]:
 
 
 dataTF = pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
@@ -299,7 +299,7 @@ dataTF
 # d(i,j) = \sqrt{\sum ^{m}_{j=1}\left( x_{ij}-c_{kj}\right) ^{2}}
 # $$
 
-# In[44]:
+# In[ ]:
 
 
 import matplotlib.pyplot as plt
@@ -323,7 +323,7 @@ plt.scatter(centroids[:,0] , centroids[:,1] , s = 50, color = 'green')
 
 # ## Soal 2
 
-# In[45]:
+# In[ ]:
 
 
 pwd
@@ -339,7 +339,7 @@ pwd
 # *  Port blocking code ke Twisted lebih mudah, dengan menjaga backwards compatibility layer.
 # * Izinkan program Twisted normal yang menggunakan threads untuk berinteraksi dengan Twisted lebih bagus dari threaded parts. Misalnya, sangat berguna saat menggunakan Twisted sebagai WSGI container.
 
-# In[46]:
+# In[ ]:
 
 
 get_ipython().system('pip install scrapy')
@@ -348,7 +348,7 @@ get_ipython().system('pip install crochet')
 
 # Membuat Class untuk Crawling data berita dari sebuah portal berita yaitu [Tempo](https://nasional.tempo.co). Lalu custom setting dari hasil dari crawling menjadi file CSV. Parse data crawling dari URL dengan id 'isi' dan tag p. Class ExtractFirstLine untuk ekstak data berita dari dari web dan memisahkan dari tag HTML.
 
-# In[47]:
+# In[ ]:
 
 
 import scrapy
@@ -403,7 +403,7 @@ def run_spider():
 
 # Jalankan fungsi untuk crawling data berita
 
-# In[48]:
+# In[ ]:
 
 
 run_spider()
@@ -411,7 +411,7 @@ run_spider()
 
 # Menampilkan data berita yang sudah dicrawling menggunakan pandas
 
-# In[49]:
+# In[ ]:
 
 
 dataBerita = pd.read_csv('beritaUGM.csv')
@@ -422,7 +422,7 @@ dataBerita
 
 # PyPDF2 adalah library Python yang memungkinkan manipulasi dokumen PDF. Ini dapat digunakan untuk membuat dokumen PDF baru, memodifikasi yang sudah ada, dan mengekstrak konten dari dokumen. PyPDF2 adalah library Python yang tidak memerlukan modul non-standar.
 
-# In[50]:
+# In[ ]:
 
 
 get_ipython().system('pip install PyPDF2')
@@ -430,7 +430,7 @@ get_ipython().system('pip install PyPDF2')
 
 # import library PyPDF2 dan membuat variabel untuk membaca file PDF berita yang sudah crawling.
 
-# In[51]:
+# In[ ]:
 
 
 import PyPDF2
@@ -444,7 +444,7 @@ document
 # PunktSentenceTokenizer adalah Sebuah libary untuk tokenizing atau memecah kalimat - kalimat pada sebuah paragraf.
 # class tokenize terdiri dari 2 tahapan yaitu tahap prepocessing dan tahap memecah kalimat pada data beritaUGM
 
-# In[52]:
+# In[ ]:
 
 
 from nltk.tokenize.punkt import PunktSentenceTokenizer
@@ -463,7 +463,7 @@ sentences_list
 
 # Menampilkan setiap kalimat yang sudah tokenizing
 
-# In[53]:
+# In[ ]:
 
 
 for j in range (len(sentences_list)):
@@ -474,7 +474,7 @@ for j in range (len(sentences_list)):
 # ### TF IDF
 # Tokenizing kata - kata pada kalimat sehingga bisa dihitung jumlah kosa kata serta menghitung TF IDF dari kata - kata tersebut.
 
-# In[54]:
+# In[ ]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
@@ -482,7 +482,7 @@ vectorizer = CountVectorizer()
 cv_matrix=vectorizer.fit_transform(sentences_list)
 
 
-# In[55]:
+# In[ ]:
 
 
 print ("Banyaknya kosa kata : ", len((vectorizer.get_feature_names_out())))
@@ -492,7 +492,7 @@ print ("Kosa kata : ", (vectorizer.get_feature_names_out()))
 
 # membuat matrix TF IDF dari kosa kata ada
 
-# In[56]:
+# In[ ]:
 
 
 normal_matrix = TfidfTransformer().fit_transform(cv_matrix)
@@ -508,7 +508,7 @@ normal_matrix.toarray()
 # 
 # Hitung perkalian matrix TF IDF dari kosa kata ada dengan matrix tranpose
 
-# In[57]:
+# In[ ]:
 
 
 res_graph = normal_matrix * normal_matrix.T
@@ -517,7 +517,7 @@ print(res_graph)
 
 # Membuat grafik dari res_graph yang sudah dihitung hasilnya
 
-# In[59]:
+# In[ ]:
 
 
 import networkx as nx
@@ -527,7 +527,7 @@ nx.draw_circular(nx_graph)
 
 # menampilkan banyak sisi dari graph yang berjumlah 151 sisi
 
-# In[60]:
+# In[ ]:
 
 
 print('Banyaknya sisi : {}'.format(nx_graph.number_of_edges()))
@@ -543,7 +543,7 @@ print('Banyaknya sisi : {}'.format(nx_graph.number_of_edges()))
 # inisiasi algoritma Pagerank dari graph nx_graph
 # 
 
-# In[64]:
+# In[ ]:
 
 
 ranks=nx.pagerank(nx_graph)
@@ -551,7 +551,7 @@ ranks=nx.pagerank(nx_graph)
 
 # input hasil perhitungan PageRank ke Array untuk ditampilkan dan dihitung urutkan angka PageRank terbesar sampai terkecil.
 
-# In[65]:
+# In[ ]:
 
 
 arrRank=[]
@@ -561,7 +561,7 @@ for i in ranks:
 
 # Buat dataFrame dengan kolom data kalimat dan data nilai PageRank
 
-# In[66]:
+# In[ ]:
 
 
 dfRanks = pd.DataFrame(arrRank,columns=['PageRank'])
@@ -572,7 +572,7 @@ dfJoin
 
 # Mengurutkan dataFrame berdasarkan nilai PageRank terbesar ke yang terkecil
 
-# In[67]:
+# In[ ]:
 
 
 sortSentence=dfJoin.sort_values(by=['PageRank'],ascending=False)
@@ -581,7 +581,7 @@ sortSentence
 
 # Dapat diketahui bahwa nilai PageRank terbesar ada pada kalimat indeks ke 8 lalu ke 5, ke 12, ke 7, dan ke 6.
 
-# In[68]:
+# In[ ]:
 
 
 sortSentence.head(5)
