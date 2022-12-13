@@ -14,9 +14,16 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 
+# In[ ]:
+
+
+import warnings
+warnings.filterwarnings('ignore')
+
+
 # Masuk ke direktori projek Web Mining
 
-# In[6]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining')
@@ -82,13 +89,13 @@ twint.run.Search(c)
 
 # Membuka file **csv** yang sudah dilabeli secara manual dengan 3 kelas yaitu positif, netral, dan negatif. 
 
-# In[3]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('cd', '/content/drive/MyDrive/Web Mining/webmining')
 
 
-# In[ ]:
+# In[2]:
 
 
 import pandas as pd
@@ -107,7 +114,7 @@ data
 # 
 # 
 
-# In[3]:
+# In[ ]:
 
 
 get_ipython().system('pip install nltk')
@@ -120,7 +127,7 @@ get_ipython().system('pip install Sastrawi')
 # 
 # >**NumPy** merupakan singkatan dari Numerical Python. NumPy merupakan salah satu library Python yang berfungsi untuk proses komputasi numerik. NumPy memiliki kemampuan untuk membuat objek N-dimensi array. Array merupakan sekumpulan variabel yang memiliki tipe data yang sama. Kelebihan dari NumPy Array adalah dapat memudahkan operasi komputasi pada data, cocok untuk melakukan akses secara acak, dan elemen array merupakan sebuah nilai yang independen sehingga penyimpanannya dianggap sangat efisien.
 
-# In[6]:
+# In[ ]:
 
 
 import pandas as pd
@@ -218,7 +225,7 @@ def preprocessing(text):
 data['tweet'].apply(preprocessing).to_csv('hasilPreprocessing.csv')
 
 
-# In[4]:
+# In[ ]:
 
 
 import pandas as pd
@@ -233,7 +240,7 @@ dataPre
 
 # Import modul untuk membuat Vector Space Model dari library Sklearn, serta import data hasil preprocessing 
 
-# In[5]:
+# In[3]:
 
 
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
@@ -244,14 +251,14 @@ bag = vectorizer.fit_transform(dataTextPre['tweet'])
 
 # Membuat matriks menjadi matriks array dan dilakukan shape pada matriks yang sudah dibuat 
 
-# In[6]:
+# In[4]:
 
 
 matrik_vsm = bag.toarray()
 matrik_vsm.shape
 
 
-# In[7]:
+# In[5]:
 
 
 matrik_vsm[0]
@@ -259,7 +266,7 @@ matrik_vsm[0]
 
 # Mengambil semua kata yang sudah di tokenizing menjadi kolom - kolom atau fitur pada matriks VSM
 
-# In[8]:
+# In[6]:
 
 
 a = vectorizer.get_feature_names()
@@ -267,7 +274,7 @@ a = vectorizer.get_feature_names()
 
 # Menampilkan Matriks VSM yang sduah dihitung frekuensi kemunculan term pada setiap tweet atau dokumen.
 
-# In[9]:
+# In[7]:
 
 
 dataTF = pd.DataFrame(data=matrik_vsm,index=list(range(1, len(matrik_vsm[:,1])+1, )),columns=[a])
@@ -276,7 +283,7 @@ dataTF
 
 # Menambahkan kolom label pada setiap tweet dan mengisi setiap baris pada kolom Label dengan data yang telah diisi manual.
 
-# In[10]:
+# In[8]:
 
 
 label = pd.read_csv('/content/drive/MyDrive/Web Mining/webmining/dataBocor.csv')
@@ -286,13 +293,13 @@ dataVSM
 
 # Membuat Kolom Label menjadi kolom unique
 
-# In[11]:
+# In[9]:
 
 
 dataVSM['label'].unique()
 
 
-# In[12]:
+# In[11]:
 
 
 dataVSM.info()
@@ -302,7 +309,7 @@ dataVSM.info()
 
 # Scikit-learn atau sklearn merupakan sebuah module dari bahasa pemrograman Python yang dibangun berdasarkan NumPy, SciPy, dan Matplotlib. Fungsi dari module ini adalah untuk membantu melakukan processing data ataupun melakukan training data untuk kebutuhan machine learning atau data science.
 
-# In[13]:
+# In[ ]:
 
 
 get_ipython().system('pip install -U scikit-learn')
@@ -338,7 +345,7 @@ get_ipython().system('pip install -U scikit-learn')
 # (Sv) : entropy untuk sampel sampel yang memiliki nilai v
 # 
 
-# In[14]:
+# In[ ]:
 
 
 from sklearn.model_selection import train_test_split
@@ -348,7 +355,7 @@ X_train,X_test,y_train,y_test=train_test_split(dataVSM.drop(labels=['label'], ax
     random_state=0)
 
 
-# In[15]:
+# In[ ]:
 
 
 X_train
@@ -356,7 +363,7 @@ X_train
 
 # Menghitung Information gain menggunakan modul yang sudah ada di sklearn dengan mengambil data yang sudah ditrain split.
 
-# In[16]:
+# In[ ]:
 
 
 from sklearn.feature_selection import mutual_info_classif
@@ -366,7 +373,7 @@ mutual_info
 
 # Meranking setiap term mulai dari information gain terbesar sampai yang terkecil.
 
-# In[17]:
+# In[ ]:
 
 
 mutual_info = pd.Series(mutual_info)
@@ -376,7 +383,7 @@ mutual_info.sort_values(ascending=False)
 
 # Membuat plot berbentuk grafik batang atau bar dari data perankingan term.
 
-# In[18]:
+# In[ ]:
 
 
 mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
@@ -384,7 +391,7 @@ mutual_info.sort_values(ascending=False).plot.bar(figsize=(50, 20))
 
 # Memilih K best sebanyak 75 item untuk training data
 
-# In[19]:
+# In[ ]:
 
 
 from sklearn.feature_selection import SelectKBest
@@ -393,7 +400,7 @@ sel_five_cols.fit(X_train, y_train)
 X_train.columns[sel_five_cols.get_support()]
 
 
-# In[20]:
+# In[ ]:
 
 
 X_train=X_train.values
@@ -409,7 +416,7 @@ y_test=y_test.values
 
 # Import algoritma KNN dari sklearn, lalu aktifkan fungsi klasifikasi KNN serta atur koefisien N, pada dataset ini kita gunakan perulangan untuk mendapatkan nilai n terbaik akurasinya 
 
-# In[31]:
+# In[ ]:
 
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -426,7 +433,7 @@ testing
 
 # Menampilkan nilai akurasi dari algoritma KNN dengan nilai n berbeda - beda
 
-# In[32]:
+# In[ ]:
 
 
 from sklearn.metrics import make_scorer, accuracy_score,precision_score
@@ -444,7 +451,7 @@ listtest
 
 # membuat grafik untuk melihat nilai n terbaik, dan dapat dilihat bahwa nilai n terbaik ada pada n ke 12
 
-# In[33]:
+# In[ ]:
 
 
 from matplotlib import pyplot as plt
@@ -457,7 +464,7 @@ plt.xlabel('Nilai n')
 
 # membuat algoritma KNN dengan nilai n = 12 dan menampilkan nilai akurasinya
 
-# In[34]:
+# In[ ]:
 
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -475,7 +482,7 @@ accuracy_neigh
 # Confusion Matrix adalah pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih.  Confusion Matrix adalah tabel dengan 4 kombinasi atau lebih berbeda dari nilai prediksi dan nilai aktual. 
 # 
 
-# In[35]:
+# In[ ]:
 
 
 import matplotlib.pyplot as plt
@@ -484,7 +491,7 @@ from sklearn import metrics
 
 # Import pyplot untuk membuat plot matriks menjadi tidak eror jika ditampilkan, lalu import metrics dari sklearn untuk membuat matriksnya.
 
-# In[36]:
+# In[ ]:
 
 
 conf_matrix =metrics.confusion_matrix(y_true=y_test, y_pred=Y_pred)
@@ -504,7 +511,7 @@ plt.show()
 # d(i,j) = \sqrt{\sum ^{m}_{j=1}\left( x_{ij}-c_{kj}\right) ^{2}}
 # $$
 
-# In[37]:
+# In[ ]:
 
 
 from sklearn.cluster import KMeans
@@ -907,7 +914,7 @@ for index, component in enumerate(lsa.components_):
 
 # menggunakan metode Decision Tree dengan jumlah estimator dari ensemble 500 menghasilkan nilai akurasi 0.4424
 
-# In[38]:
+# In[ ]:
 
 
 from sklearn import model_selection
@@ -937,7 +944,7 @@ print(results.mean())
 
 # menggunakan metode Support Vector Classifier dengan jumlah estimator dari ensemble 500 menghasilkan nilai akurasi 0.3530
 
-# In[39]:
+# In[ ]:
 
 
 from sklearn import model_selection
@@ -969,7 +976,7 @@ print(results.mean())
 
 # menggunakan metode random forest classifier dengan jumlah estimator, max feature, max depth, dan criterion ditentukan oleh gridsearchCV
 
-# In[40]:
+# In[ ]:
 
 
 from sklearn.ensemble import RandomForestClassifier
@@ -989,7 +996,7 @@ CV_rfc.fit(X_train, y_train)
 
 # menampilkan parameter terbaik dari random forest
 
-# In[42]:
+# In[ ]:
 
 
 CV_rfc.best_params_
@@ -997,7 +1004,7 @@ CV_rfc.best_params_
 
 # hasil klasifikasi random forest mendapatkan nilai akurasi 0.4583
 
-# In[52]:
+# In[ ]:
 
 
 rfc1=RandomForestClassifier(random_state=42, max_features='log2', n_estimators= 100, max_depth=6, criterion='gini')
@@ -1012,7 +1019,7 @@ print("Accuracy for Random Forest on CV data: ",accuracy_score(y_test,pred))
 
 # Hasil klasifikasi ensemble stacking dengan metode random forest mendapatkan nilai akurasi 0.73214
 
-# In[21]:
+# In[ ]:
 
 
 from sklearn.datasets import load_iris
@@ -1028,3 +1035,36 @@ clf = StackingClassifier(
 )
 clf.fit(X_train, y_train).score(X_train, y_train)
 
+
+# ## Crawling Instagram
+
+# In[ ]:
+
+
+pip install scrape-instagram
+
+
+# In[ ]:
+
+
+from scrape_instagram import *
+response1 =instagram.comment_scrape(url_link="https://www.instagram.com/p/ClUCkOjhH-e/?hl=id")
+response1
+# komen = []
+# for i in range(len(response1["body"])):
+#     komen.append((response1["body"][i]['comment']))
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+pwd
+
+
+# 
