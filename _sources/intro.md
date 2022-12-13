@@ -1,14 +1,11 @@
-# Welcome to My Book
+# Welcome to your Jupyter Book
 
-| Biodata Penulis |     |
-|-----------------|---------------------------------------------------|
-| Nama            | Faridz Nur Firdausy Setyo Nugraha                 |
-| NIM             | 190411100084                                      |
-| Kelas           | Pencarian & Penambangan Web (A)                   |
-| Dosen Pengampu  | MULA’AB, S.Si., M.Kom.                             |
-| Program Studi   | Teknik Informatika - Universitas Trunojoyo Madura |
+This is a small sample book to give you a feel for how book content is
+structured.
+It shows off a few of the major file types, as well as some sample content.
+It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
 
-Buku atau halaman ini merupakan sarana yang dibuat dengan tujuan sebagai media pembelajaran dan pengumpulan tugas, khusunya terkait mata kuliah Pencarian & Penambangan Web. Berikut isi dari buku ini:
+Check out the content pages bundled with this sample book to see more.
 
 ```{tableofcontents}
 ```
